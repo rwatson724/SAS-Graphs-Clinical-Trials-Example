@@ -1,0 +1,3 @@
+At the top of each program is a section where you will need to update the %include statement to point to the correct location of the CustomSapphire style (saved under Program/Styles folder in the repository) and update the libname statement to point to the correction location of the SAS data sets (most are saved under Data folder in the repository).
+
+CustomSapphire is a style created by SAS Press for use in books. This style was used through the book unless noted in specific chapters where CustomSapphire was further modified to accommodate specific graph features or to illustrate different features of the style template.
