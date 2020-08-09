@@ -1,9 +1,9 @@
 /****************************************************************************************
-Program:          Program 4-5.sas
+Program:          Program_4-5.sas
 SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-08-06
-Purpose:          Produce Napoleon Plot outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce Napoleon Plot outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
 Input:            adam.adlbchem.sas7bdat
