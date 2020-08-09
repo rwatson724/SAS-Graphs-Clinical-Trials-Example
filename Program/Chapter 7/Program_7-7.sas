@@ -1,10 +1,10 @@
 /****************************************************************************************
-Program:          Program 7-7.sas
+Program:          Program_7-7.sas
 SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-06-10
 Purpose:          Two-Way Venn Diagram with tick values. Created for the Appendix for 
-                  the SAS® Graphics for Clinical Trials by Example book. 
+                  the SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
 Input:            NONE
