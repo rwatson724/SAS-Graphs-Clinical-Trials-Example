@@ -7,7 +7,7 @@ Purpose:          Lattice Plot: Frequency Plot of Maximum Grade 1 AE for each SO
                   outputs for SAS® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
-Input:            adam.adsl, tfldata.adaesummaryrel1
+Input:            adam.adsl, tfldata.adaesummaryall1
 Output:           Output 2-3.png
 Comments:         Use CustomSapphire style that was provided by SAS press
                   Note CustomSapphire is not provided with SAS but rather created 
@@ -96,7 +96,7 @@ run;
 ods listing gpath = "&outputpath" image_dpi = 300 style = aepanelstyle;
 ods graphics / reset = all imagename = "Output 2-3" imagefmt = png height = 3.5in width = 5in;
 
-proc sgrender data = tfldata.adaesummaryrel1 template = aedatalatticesoc;
+proc sgrender data = tfldata.adaesummaryall1 template = aedatalatticesoc;
   where trtan = 54 and aesoc in ("GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS", "SKIN AND SUBCUTANEOUS TISSUE DISORDERS");
   by trta;
   format trflag aerel.;
