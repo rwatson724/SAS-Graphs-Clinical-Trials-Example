@@ -1,6 +1,7 @@
 Not all data is included here. Data coming from the CDISC Pilot Study can be found at the CDISC website. 
 
 Data from the CDISC Pilot Study that are not included are: 
+
 		SDTM: EX   
 		ADAM: ADSL, ADLBC, ADAE, ADTTE, ADVS.
 
