@@ -28,6 +28,49 @@ libname adam "C:\Users\gonza\Desktop\GTL_Book_with_Richann_Watson\sasdatasets\ad
 /* Specify the ODS output path */
 filename outp "&outputpath";
 
+/* 1. add a URL column for the drill-down links to the Adverse Event data set */
+/*    only keep certain treatment emergent AEs for dermatological events      */
+data adae (keep = USUBJID TRT: AEBODSYS AEDECOD AETERM ASTDT AENDT ADURN  
+                  AESEV AESER AEREL AREL AEOUT AOCC: url: prefterm pttrt:);
+   length url0 url1 pttrt pttrtsev $500;
+   set adam.adae;
+   where TRTEMFL = 'Y' and not missing(CQ01NAM) and 
+         (AEDECOD ?  'DERMA' or AEDECOD ? 'IRRITATION' or AEDECOD ? 'PRURITUS' or AEDECOD ? 'VESIC' or
+          AEDECOD =: 'ERYTH' or AEDECOD = 'RASH') and not(AEDECOD ? 'GENERAL') and not(AEDECOD ? 'CONTACT');
+
+   /* need to change the spaces to underscores to build URLs */
+   PREFTERM = lowcase(tranwrd(tranwrd(strip(AEDECOD), ' ', '_'), '-', '_'));
+
+   /* create a new relationship variable to group the various options - assume worst case when missing */
+   if AEREL = 'NONE' then AREL = AEREL;
+   else AREL = 'RELATED';
+
+   /* build URLs for each preferred term */
+   pttrt = catx('_', PREFTERM, TRTAN);
+   url0 = cats(pttrt, '.html');
+
+   /* build URLs for each preferred term by relation */
+   pttrtsev = catx('_', PREFTERM, AESEV, TRTAN);
+   url1 = cats(pttrtsev, '.html');
+run;
+
+proc sort data = adae;
+   by USUBJID AEDECOD AESEV;
+run;
+
+data adae;
+   set adae;
+   by USUBJID AEDECOD AESEV;
+   if first.AESEV then AOCC05FL = 'Y';
+run;
+
+/* create a macro variable of all unique prefterm and ptrel so that we can loop through */
+proc sql noprint;
+   select distinct pttrt, pttrtsev into :allprefterm separated by "#",
+                                        :allpttrt    separated by "#"
+   from adae;
+quit;
+
 /* generate a supporting graph for each preferred term */
 %macro genchart(trt = , color =);
    /* create a template for the supporting AE graph - within in macro so bar colors can align with main graph */
@@ -35,7 +78,7 @@ filename outp "&outputpath";
       define statgraph sevfreq&trt;
          begingraph;
             entryfootnote textattrs = (size = 8 pt color = red) "Click back arrow on navigation bar to return to main bar chart";
-            layout overlay / yaxisopts = (label = "Number of Subjects with at Least One AE"
+            layout overlay / yaxisopts = (label = "Number of Patients with at Least One AE"
 			                              labelattrs = (size=9pt)
 										  tickvalueattrs = (size=8pt)
                                           griddisplay = on 
