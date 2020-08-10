@@ -36,7 +36,9 @@ filename outp "&outputpath";
     <a href='aes_ALL SEVERITIES.html'>All</a>
     <a href='aes_MILD.html'>Mild</a>
     <a href='aes_MODERATE.html'>Moderate</a>
+
 	<a href='aes_SEVERE.html'>Severe</a>
+
   </div>
 </div>
 </center>;
@@ -52,7 +54,9 @@ proc template;
       dynamic severity;
       begingraph;
          entrytitle textattrs = (size = 13pt) severity "Dermatological Events";
+
          layout overlay / yaxisopts = (label = "Percentage of Patients with at Least One AE"
+
 		                               labelattrs = (size=11pt)
 									   tickvalueattrs = (size=9pt)
                                        griddisplay = on 

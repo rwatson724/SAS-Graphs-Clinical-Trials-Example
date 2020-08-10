@@ -78,7 +78,9 @@ quit;
       define statgraph sevfreq&trt;
          begingraph;
             entryfootnote textattrs = (size = 8 pt color = red) "Click back arrow on navigation bar to return to main bar chart";
+
             layout overlay / yaxisopts = (label = "Number of Patients with at Least One AE"
+
 			                              labelattrs = (size=9pt)
 										  tickvalueattrs = (size=8pt)
                                           griddisplay = on 
@@ -108,12 +110,11 @@ quit;
          /* changed height and width so graph did not look so small - I think default is 4 x 6 */
          *ods graphics / reset imagemap = on imagename = "&upt" drilltarget = "_self" height = 8in width = 12in;
          ods graphics / reset imagemap = on imagename = "&upt" drilltarget = "_self" height = 3.33in width = 5in;
-	     *ods graphics / reset imagemap = on imagename = "&upt" drilltarget = "_self" height = 2in width = 3in;
-
+	       *ods graphics / reset imagemap = on imagename = "&upt" drilltarget = "_self" height = 2in width = 3in;
 
          /* Generate the graph using ODS HTML. */
          *ods _all_ close;
-		 ods listing image_dpi = 300 style = customsapphire gpath = "";
+		     ods listing image_dpi = 300 style = customsapphire gpath = "";
          ods html path = outp file = "&upt..html" style = customsapphire;
          proc sgrender data = adam.adaesev template = sevfreq&trt;
             where pttrt = "&upt";

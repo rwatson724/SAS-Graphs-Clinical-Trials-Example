@@ -1,16 +1,17 @@
 /****************************************************************************************
-Program:          Program 7-4.sas
+Program:          Program_7-8.sas
 SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-06-10
-Purpose:          Two-Way Venn Diagram for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Two-Way Venn Diagram with overlay equated layout and tick values. Created for the Appendix for 
+                  the SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
 Input:            NONE
-Output:           Output 7-9
+Output:           Output 7-13
 Comments:         Use CustomSapphire style that was provided by SAS press
                   Note CustomSapphire is not provided with SAS but rather created 
-                  specifically for SAS Press books
+                  specifically for SAS Press books.
                   The VennDiagramMacro was used to find the numbers that should be displayed on
                   the Venn diagram.
 ----------------------------------------------------------------------------------------- 
@@ -32,7 +33,7 @@ libname adam "C:\Users\gonza\Desktop\GTL_Book_with_Richann_Watson\sasdatasets\ad
 filename outp "&outputpath";
 
 data data_for_plot_layout;
-   do x = 1 to 1;
+   do x = 1 to 100;
       y = x;
       output;
    end;
@@ -40,17 +41,18 @@ run;
 
 proc template;
    define statgraph Venn2Way;
-      begingraph / drawspace=wallpercent;
+      begingraph / drawspace=datavalue;
       /* Plot */
-      layout overlay / yaxisopts = (display = none) xaxisopts = (display = none);
+      layout overlayequated / equatetype=square
+                              yaxisopts=(display=(tickvalues ticks)) xaxisopts=(display=(tickvalues ticks));
          scatterplot x = x y = y / markerattrs=(size = 0);
 
 	     /* Venn Diagram (Circles) */
-         drawoval x = 37 y = 50 width = 45 height = 60 /
+         drawoval x = 37 y = 50 width = 45 height = 45 /
             display = all fillattrs = (color = red)
             transparency = 0.75 widthunit = percent heightunit = percent;
 
-         drawoval x=63 y=50 width=45 height=60 /
+         drawoval x=63 y=50 width=45 height=45 /
             display=all fillattrs=(color=green)
             transparency=0.75 widthunit= percent heightunit =percent;
 
@@ -68,7 +70,7 @@ end;
 run;
 
 ods listing image_dpi=300 style = customsapphire gpath = "&outputpath";
-ods graphics / reset=all imagename="Output7_9" height=3.75in width=5in;
+ods graphics / reset=all imagename="Output7_13" height=3.75in width=5in;
 
 proc sgrender data=data_for_plot_layout template=Venn2Way;
 run;

@@ -1,14 +1,14 @@
 /****************************************************************************************
-Program:          Program 7-8.sas
+Program:          Program_7-7.sas
 SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-06-10
-Purpose:          Two-Way Venn Diagram with overlay equated layout and tick values. Created for the Appendix for 
-                  the SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Two-Way Venn Diagram with tick values. Created for the Appendix for 
+                  the SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
 Input:            NONE
-Output:           Output 7-13
+Output:           Output 7-12
 Comments:         Use CustomSapphire style that was provided by SAS press
                   Note CustomSapphire is not provided with SAS but rather created 
                   specifically for SAS Press books.
@@ -43,16 +43,15 @@ proc template;
    define statgraph Venn2Way;
       begingraph / drawspace=datavalue;
       /* Plot */
-      layout overlayequated / equatetype=square
-                              yaxisopts=(display=(tickvalues ticks)) xaxisopts=(display=(tickvalues ticks));
-         scatterplot x = x y = y / markerattrs=(size = 0);
+      layout overlay / yaxisopts=(display=(tickvalues ticks)) xaxisopts=(display=(tickvalues ticks));
+         scatterplot x = x y = y / markerattrs=(size = 1);
 
 	     /* Venn Diagram (Circles) */
-         drawoval x = 37 y = 50 width = 45 height = 45 /
+         drawoval x = 37 y = 50 width = 45 height = 60 /
             display = all fillattrs = (color = red)
             transparency = 0.75 widthunit = percent heightunit = percent;
 
-         drawoval x=63 y=50 width=45 height=45 /
+         drawoval x=63 y=50 width=45 height=60 /
             display=all fillattrs=(color=green)
             transparency=0.75 widthunit= percent heightunit =percent;
 
@@ -62,15 +61,17 @@ proc template;
          drawtext "66" / x=66 y=50 anchor=center;
 
 		 /* Labels */
-         drawtext "Xanomeline Low Dose" / x=30 y=15 anchor=center width = 32;
-         drawtext "Xanomeline High Dose" / x=70 y=15 anchor=center width = 32;
+         drawtext "Xanomeline Low Dose" / x=30 y=15 anchor=center width = 36;
+         drawtext "Xanomeline High Dose" / x=70 y=15 anchor=center width = 36;
       endlayout;
    endgraph;
 end;
 run;
 
 ods listing image_dpi=300 style = customsapphire gpath = "&outputpath";
-ods graphics / reset=all imagename="Output7_13" height=3.75in width=5in;
+ods graphics / reset=all imagename="Output7_12" height=3.75in width=5in;
 
 proc sgrender data=data_for_plot_layout template=Venn2Way;
 run;
+
+ods graphics / reset=all;

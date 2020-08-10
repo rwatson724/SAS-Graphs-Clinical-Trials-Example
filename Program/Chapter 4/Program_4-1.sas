@@ -1,13 +1,13 @@
 /****************************************************************************************
-Program:          Program 4-4.sas
+Program:          Program_4-1.sas
 SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-08-06
-Purpose:          Produce Napoleon Plot output for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce Step 1 of Napoleon Plot output for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
 Input:            tfldata.napoleon_data1
-Output:           Output 4-4.png
+Output:           Output 4-1.png
 Comments:         Use CustomSapphire style that was provided by SAS press
                   Note CustomSapphire is not provided with SAS but rather created 
                   specifically for SAS Press books
@@ -36,12 +36,12 @@ quit;
 proc format cntlin=format_dataset;
 run;
 
-*Image 4;
+*Image 1;
 
 *** Note when referencing the DiscreteattrMap directly in the discrete legend you need
 to add in the type ***;
 proc template;
-   define statgraph napplot2;
+   define statgraph napplot1;
       begingraph;
 
          DiscreteAttrMap name="Dose_Group";
@@ -61,18 +61,6 @@ proc template;
          EndDiscreteAttrMap;
          DiscreteAttrVar attrvar = id_visit_dose_group var = visit_dose attrmap = "Visit_Dose_Group";
 
-         DiscreteAttrMap name = "Response_Markers";
-            Value "A" "Adverse Event" /
-               markerattrs = (color = GraphData4:color symbol = squarefilled);
-            Value "D" "Death" /
-               markerattrs = (color = GraphData5:color symbol = squarefilled);
-            Value "O" "Ongoing" /
-               markerattrs = (color = GraphData6:color symbol = squarefilled);
-            Value "PD" "Progressive Disease" /  
-               markerattrs=(color= GraphData7:color symbol=squarefilled);
-         EndDiscreteAttrMap;
-         DiscreteAttrVar attrvar = id_response_markers var = result attrmap = "Response_Markers";
-
          layout overlay / xaxisopts = (label = "Days on Treatment"  linearopts = (viewmin = 0)) 
                           yaxisopts = (label="Patient" reverse = true);
 
@@ -80,38 +68,20 @@ proc template;
                                                            orient = horizontal 
                                                            group = id_visit_dose_group;
 
-		    Scatterplot X = length Y = order_subject / markerattrs = (size = 12pt) 
-                                                       group=id_response_markers;
-
-		    Scatterplot X = length Y = order_subject / markercharacter = result_label 
-                                                       markercharacterattrs=(size=9pt);
-
-			Scatterplot X = eval(length + 15) Y = order_subject / markercharacter = cohort_label 
-                                                                  markercharacterattrs=(size=9pt);
-
             DiscreteLegend "Dose_Group"/ type=fillcolor
                                          autoalign = (bottomright) 
                                          across = 1 
                                          location = inside 
                                          title = "Dose";
-
-            DiscreteLegend "Response_Markers"/ type = marker 
-                                               exclude = ("A" "D" "O" "PD") 
-                                               location = outside 
-                                               valign = bottom 
-                                               down = 1
-                                               title="Reason for Treatment Discontinuation" 
-                                               titleattrs=(size=8pt) 
-                                               valueattrs=(size=7pt);
          endlayout;
       endgraph;
    end;
 run;
 
-ods graphics on / reset = all maxlegendarea = 30 imagename ="Output 4-4" height = 3.33in width = 5in ;
+ods graphics on / reset = all imagename ="Output 4-1" height = 3.33in width = 5in ;
 ods listing gpath = "&outputpath" dpi = 300 style=customSapphire;
 
-proc sgrender data = tfldata.napoleon_data1 template = napplot2;
+proc sgrender data = tfldata.napoleon_data1 template = napplot1;
    format order_subject subjfmt.;
 run;
 

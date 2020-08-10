@@ -34,7 +34,9 @@ proc template;
       begingraph;
          entrytitle textattrs = (size = 13pt) "Dermatological Events";
          entryfootnote textattrs = (size = 12pt) "Click a bar for Preferred Term and Treatment Data";
+
          layout overlay / yaxisopts = (label = "Percentage of Patients with at Least One AE"
+
 		                               labelattrs = (size=10pt)
 									   tickvalueattrs = (size=10pt)
                                        griddisplay = on 
