@@ -69,7 +69,7 @@ run;
 
 proc template;
    define statgraph aedatapanelsoc;
-      mvar gtitlesev trt2n;
+      mvar trt2n;
       dynamic _byval_;
       begingraph;
       entrytitle "Actual Treatment = " _byval_ ", N = " trt2n;
