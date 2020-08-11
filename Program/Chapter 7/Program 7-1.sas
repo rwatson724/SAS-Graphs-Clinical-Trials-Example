@@ -28,6 +28,10 @@ libname adam "C:\Users\gonza\Desktop\GTL_Book_with_Richann_Watson\sasdatasets\ad
 /* Specify the ODS output path */
 filename outp "&outputpath";
 
+/**************************************************************************************************************************/
+/*** This ADAE is used so that the ALLPREFTERM macro variables values can be created and used within the GENCHART macro ***/
+/**************************************************************************************************************************/
+
 /* 1. add a URL column for the drill-down links to the Adverse Event data set */
 /*    only keep certain treatment emergent AEs for dermatological events      */
 data adae (keep = USUBJID TRT: AEBODSYS AEDECOD AETERM ASTDT AENDT ADURN  
@@ -70,6 +74,10 @@ proc sql noprint;
                                         :allpttrt    separated by "#"
    from adae;
 quit;
+
+/*********************************************************************************************************************************/
+/*** End of SAS statements that were used to generate the ALLPREFTERM macro variable values and used within the GENCHART macro ***/
+/*********************************************************************************************************************************/
 
 title1 " ";
 /* generate a supporting graph for each preferred term */
