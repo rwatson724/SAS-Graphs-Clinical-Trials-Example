@@ -4,7 +4,7 @@ Program:          Program_9-6.sas
 SAS Version:      SAS Enterprise Guide 7.15 (SAS 9.4m5)
 Developer:        Richann Watson 
 Date:             2020-04-16
-Purpose:          Produce outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 10
 
 Macros:           NONE
@@ -24,7 +24,8 @@ Comments:         Use CustomSapphire style that was provided by SAS press
 /*******************************************/
 options validvarname=upcase;
 %include "C:\Users\gonza\Desktop\GTL_Book_with_Kriss_Harris\Example Code and Data\Program\Chapter 9\styles\CustomSapphire.sas";
-libname adam "C:\Users\gonza\Desktop\GTL_Book_with_Kriss_Harris\Example Code and Data\Data\Chapter 9";
+libname adam ("C:\Users\gonza\Desktop\GTL_Book_with_Kriss_Harris\Example Code and Data\Data\Chapter 9",
+              "C:\Users\gonza\Desktop\GTL_Book_with_Kriss_Harris\Example Code and Data\CDISC Pilot Study\adam");
 %let outpath = C:\Users\gonza\Desktop\GTL_Book_with_Kriss_Harris\Example Code and Data\Output\Chapter 9;
 %let outname = Output_9-5;
 /*****************************************/
