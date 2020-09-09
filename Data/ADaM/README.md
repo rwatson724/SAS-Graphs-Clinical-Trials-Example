@@ -6,7 +6,7 @@ In addition, Chapter 3 uses ADSL and ADVS from the CDISC Pilot Study.
 
 Chapter 6 uses the following data sets found in this folder: 
 
-		ADBORPC2, ADBORPCH, ADRESP, ADRSPMOD, ADTMBSDY, ADTMDMOD, ADTMDMOD2, ADTUMD, ATTRMAP.
+		ADBORPC2, ADBORPCH, ADRSPMOD, ADTMBSDY, ADTMDMOD, ATTRMAP.
 In addition, Chapter 6 uses ADSL from the CDISC Pilot Study.
 
 
