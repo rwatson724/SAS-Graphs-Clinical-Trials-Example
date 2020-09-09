@@ -1,6 +1,6 @@
-Data for Chapter 3 is found in the Data/ADaM and Data/TFLDATA folders. It uses the following data sets:
+Data for Chapter 5 is found in the Data/ADaM and Data/TFLDATA folders. It uses the following data sets:
 
-		Data/ADaM: ADTTEEF
+		Data/ADaM: ADTTEEFF
 		Data/TFLDATA: HAZARDRATIOS_SUBGROUP_ALL_N.
 
 
