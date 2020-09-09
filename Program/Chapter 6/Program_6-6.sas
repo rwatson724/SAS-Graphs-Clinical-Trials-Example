@@ -4,12 +4,12 @@ Program:          Program_6-6.sas
 SAS Version:      SAS Enterprise Guide 7.15 (SAS 9.4m5)
 Developer:        Richann Watson 
 Date:             2020-03-31
-Purpose:          Produce outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 10
 
 Macros:           NONE
 
-Input:            adtmbsdy.sas7bdat
+Input:            adrspmod.sas7bdat
 
 Output:           Output_6-5.rtf
 
