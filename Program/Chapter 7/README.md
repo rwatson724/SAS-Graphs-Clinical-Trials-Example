@@ -7,4 +7,4 @@ It uses the following data sets:
 
 The CustomSapphire style found in the Program/Styles folder is also used.
 
-In this chapter, several of the graphs require use of a macro created by the author, VennDiagramMacro. This is provided for your use.  For the interactive graphs, the scripts (myScript.js and myScript.jss) needed to generate the interaction are provided and should be saved in the same folder where your output will reside.
+In this chapter, several of the graphs require use of a macro created by the author, VennDiagramMacro. This is provided for your use.  For the interactive graphs, the scripts (myScript.css and myScript.js) needed to generate the interaction are provided and should be saved in the same folder where your output will reside.
