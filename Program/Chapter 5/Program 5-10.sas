@@ -27,7 +27,7 @@ libname tfldata "C:\Users\gonza\Desktop\GTL_Book_with_Richann_Watson\sasdatasets
 /*** END SECTION TO BE UPDATED BY USER ***/
 /*****************************************/
 
-proc sort data = tfldata.HazardRatios_Subgroup_All_N;
+proc sort data = tfldata.HazardRatios_Subgroup_All_N out = Hazardratios_subgroup_all_n;
    by ord ord2 original_order; 
 run;
 
@@ -145,12 +145,12 @@ run;
 ods listing image_dpi=300 style = customsapphire gpath = "&outputpath";
 ods graphics / reset=all imagename="Output 5-9" height=3.33in width=5in;
 
-proc sgrender data = tfldata.Hazardratios_subgroup_all_n template = forestplotsubgrouptemplate;
+proc sgrender data = Hazardratios_subgroup_all_n template = forestplotsubgrouptemplate;
    dynamic dose = "High";
    where description = "TRTPN High Dose vs Placebo";
 run;
 
-proc sgrender data = tfldata.Hazardratios_subgroup_all_n template = forestplotsubgrouptemplate;
+proc sgrender data = Hazardratios_subgroup_all_n template = forestplotsubgrouptemplate;
    where description = "TRTPN Low Dose vs Placebo";
 run;
 
