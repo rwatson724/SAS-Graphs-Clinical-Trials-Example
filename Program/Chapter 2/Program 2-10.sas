@@ -61,11 +61,6 @@ proc sort data = adae_trtemfl;
    by usubjid;
 run;
 
-proc export data = adae_trtemfl(where=(usubjid = "01-701-1192") keep=usubjid aedecod astdy aendy aeseq)
-   outfile = "C:\Users\gonza\Desktop\GTL_Book_with_Richann_Watson\Chapter 2\output\data_for_profileplot.xlsx"
-   dbms=xlsx replace;
-run;
-
 * Template for AE;
 proc template;
    define statgraph ae_timeline;

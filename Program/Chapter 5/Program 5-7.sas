@@ -122,13 +122,9 @@ data headers_&variable.;
    ord2 = 1; output; * This is so the order is correct when stacking the data;
 run;
 
-data headers;
-   %if &ord = 2 %then %do;
-      set headers_&variable.;
-   %end;
-   %else %if &ord > 2 %then %do;
-      set headers headers_&variable.;
-   %end;
+data headers;  
+   set %if &ord > 2 %then headers;
+   headers_&variable.;
 run;
 
 data HazardRatios_Subgroup;
