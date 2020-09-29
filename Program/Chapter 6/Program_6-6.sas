@@ -46,22 +46,6 @@ data attrmap (drop = i);
    end;
 run;
 
-proc sort data = adam.attrmap;
-   by id value;
-run;
-
-proc sort data = attrmap;
-   by id value;
-run;
-
-/* append to the existing attribute map to have a master data set */
-/* note it is not required to save attribute map as a permanent   */
-/* data set - this is done if you wish others to reference it     */
-data adam.attrmap;
-   update adam.attrmap attrmap;
-   by id value;
-run;
-
 proc template;
    define statgraph disdur;
       begingraph / border = false;
@@ -108,7 +92,7 @@ ods rtf file = "&outpath.\&outname..rtf"
         image_dpi = 300
         style = customSapphire;
 
-proc sgrender data = adam.adrspmod template = disdur dattrmap = adam.attrmap;
+proc sgrender data = adam.adrspmod template = disdur dattrmap = attrmap;
   dattrvar avalc = 'swimmer';  /* associating the variable (avalc) with the attributes tied to 'swimmer' ID */
   by page trtp;
 run;
