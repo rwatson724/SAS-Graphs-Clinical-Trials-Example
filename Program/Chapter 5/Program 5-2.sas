@@ -73,8 +73,8 @@ proc template;
       mvar log_rank_pvalue HazardRatio1 HazardRatio2;
       begingraph;
 	  entrytitle "Product-Limit Survival Estimates" / textattrs=(size=11pt);
-      entrytitle "With Number of Patients at-Risk" / textattrs=(size=10pt);
-	  layout overlay / xaxisopts=(label="Days from Randomisation" linearopts=(tickvaluesequence=(start=0 end=210 increment=30)));
+      entrytitle "With Number of Patients At-Risk" / textattrs=(size=10pt);
+	  layout overlay / xaxisopts=(label="Days from Randomization" linearopts=(tickvaluesequence=(start=0 end=210 increment=30)));
 	     stepplot x = time y = survival / group = stratum name="Survival"
             legendlabel="Survival";
 

@@ -43,7 +43,7 @@ ods listing image_dpi=300 style = customsapphire gpath = "&outputpath";
 ods graphics / reset = all imagename = "Output 5-1" height = 3.33in width = 5in;
 
 title1 'Product-Limit Survival Estimates';
-title2 'With Number of Patients at-Risk';
+title2 'With Number of Patients At-Risk';
 
 proc sgplot data=SurvivalPlot;
    step x = time y = survival / group = stratum name = 'survival';
@@ -56,7 +56,7 @@ proc sgplot data=SurvivalPlot;
    keylegend 'survival';
 
    yaxis min = 0;
-   xaxis values = (0 to 210 by 30) label = "Days from Randomisation";
+   xaxis values = (0 to 210 by 30) label = "Days from Randomization";
    format stratum $trt.;
 run;
 

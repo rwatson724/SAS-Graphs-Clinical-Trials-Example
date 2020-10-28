@@ -1,14 +1,14 @@
 /****************************************************************************************
-Program:          Program 5-4.sas
+Program:          Program 5-5.sas
 SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-03-29
-Purpose:          Used to create the Cumulative incidence plot including hazard ratio, log-rank p-value and median survival time using GTL 
+Purpose:          Used to create the Cumulative incidence plot including number of subjects, event percentage and median survival time using GTL
                   for SAS® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
 Input:            adam.adtteeff 
-Output:           Output 5-4.png
+Output:           Output 5-5.png
 Comments:         Use CustomSapphire style that was provided by SAS press
                   Note CustomSapphire is not provided with SAS but rather created 
                   specifically for SAS Press books
@@ -44,30 +44,20 @@ run;
 ods listing close;
 ods output Quartiles = Quartiles;
 ods output SurvivalPlot = SurvivalPlot;
-ods output HomTests=HomTests(where=(test="Log-Rank"));
+ods output CensoredSummary = CensoredSummary;
+
 proc lifetest data = adam.adtteeff plots=survival(atrisk=0 to 210 by 30);
    time aval * cnsr(1);
    strata trtpn;
 run;
 
-/* Obtaining hazard ratios from Proc PHREG */
-ods output HazardRatios = HazardRatios;
-proc phreg data = adam.adtteeff;
-   class trtpn /ref=last;
-   model aval * cnsr(1) = trtpn;
-   hazardratio trtpn /diff=ref;
-   format trtpn trt.;
-run;
 
-/* Creating Macro Variables to display hazard ratios, log-rank p-value and Median Survival Times */
-proc sql;
-   select put(ProbChiSq, pvalue6.4) into: log_rank_pvalue
-   from HomTests;
-quit;
+/* Creating Macro Variables to display Events and Median Survival Times */
 
+* Obtaining Ns and Events;
 proc sql;
-   select put(HazardRatio, 6.2) into: HazardRatio1-:HazardRatio2
-   from HazardRatios;
+   select put(total, 3.), put(failed, 3.)||" ("||put((100-pctcens), nlnum5.2)||")"  into: total1-:total3, :evnt_perc1-:evnt_perc3
+   from CensoredSummary;
 quit;
 
 proc sql;
@@ -76,18 +66,13 @@ proc sql;
    where percent = 50;
 quit;
 
-%macro km;
 proc template;
    define statgraph kmtemplate;
-      nmvar MedianSurvival1 MedianSurvival2 MedianSurvival3;
-      mvar log_rank_pvalue HazardRatio1 HazardRatio2 CMedianSurvival1 CMedianSurvival2 CMedianSurvival3;
+      mvar CMedianSurvival1 CMedianSurvival2 CMedianSurvival3
+          total1 total2 total3 evnt_perc1 evnt_perc2 evnt_perc3;
       begingraph;
 	  layout lattice / rows=2 rowweights=preferred;
 	     layout overlay / xaxisopts=(label="Days from Randomization" linearopts=(tickvaluesequence=(start=0 end=210 increment=30)));
-
-	        %do i = 3 %to 1 %by -1;
-		       dropline y = 0.50 x = MedianSurvival&i  / dropto = both lineattrs=(thickness=1px color=graphdata&i:color pattern=graphdata&i:linestyle) label=CMedianSurvival&i;
-            %end;
 
 	        stepplot x = time y = survival / group = stratum name="Survival"
                legendlabel="Survival";
@@ -98,15 +83,32 @@ proc template;
             discretelegend "Censored" / location = inside autoalign = (topright);
             discretelegend "Survival" / location = outside across = 3 down = 1;
 
-		    layout gridded / columns=2 rows = 3 border = true halign = right valign = top outerpad=(top=25px);
-               entry halign = right "Log-Rank: " textattrs=(style=italic) "p" textattrs=(style=normal) "-value = "; 
-               entry halign = left log_rank_pvalue;
-			   entry "HR: High Dose vs Placebo = "; entry halign = left HazardRatio1;
-			   entry "HR: Low Dose vs Placebo = "; entry halign = left HazardRatio2;
+   	        layout gridded / columns=4 rows=4 border = true autoalign=(topright) outerpad=(top=25px);
+
+		       entry halign = center "Planned Treatment" / textattrs=(weight=bold); 
+               entry halign = center "Patients" / textattrs=(weight=bold); 
+               entry halign = center "Events (%)" / textattrs=(weight=bold); 
+			   entry halign = center "Median Time" / textattrs=(weight=bold); 
+		
+               entry halign = center "Placebo" / textattrs=(color=graphdata1:contrastcolor) ; 
+               entry halign = center total1 / textattrs=(color=graphdata1:contrastcolor); 
+               entry halign = center evnt_perc1 / textattrs=(color=graphdata1:contrastcolor); 
+               entry halign = center CMedianSurvival1 / textattrs=(color=graphdata1:contrastcolor); 
+
+               entry halign = center "Low Dose" / textattrs=(color=graphdata2:contrastcolor); 
+               entry halign = center total2 / textattrs=(color=graphdata2:contrastcolor); 
+               entry halign = center evnt_perc2 / textattrs=(color=graphdata2:contrastcolor); 
+               entry halign = center CMedianSurvival2 / textattrs=(color=graphdata2:contrastcolor); 
+
+               entry halign = center "High Dose" / textattrs=(color=graphdata3:contrastcolor); 
+               entry halign = center total3 / textattrs=(color=graphdata3:contrastcolor); 
+               entry halign = center evnt_perc3 / textattrs=(color=graphdata3:contrastcolor); 
+               entry halign = center CMedianSurvival3 / textattrs=(color=graphdata3:contrastcolor); 
+
 		    endlayout;
 	     endlayout;
 
-         layout overlay / xaxisopts=(display=none linearopts=(tickvaluesequence=(start=0 end=210 increment=30))) border=off;
+         layout overlay / xaxisopts=(display=none) border=off;
             axistable value=atrisk x=tatrisk / class=stratum colorgroup=stratum;		 
 	     endlayout;
 
@@ -115,11 +117,8 @@ proc template;
    end;
 run;
 
-%mend;
-%km;
-
 ods listing image_dpi=300 style = customsapphire gpath = "&outputpath";
-ods graphics / reset=all imagename="Output 5-4" height=3.33in width=5in;
+ods graphics / reset=all imagename="Output 5-5" height=3.33in width=5in;
 
 title1 'Product-Limit Survival Estimates';
 title2 'With Number of Subjects At-Risk';
