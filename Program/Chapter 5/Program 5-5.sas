@@ -72,7 +72,7 @@ proc template;
           total1 total2 total3 evnt_perc1 evnt_perc2 evnt_perc3;
       begingraph;
 	  layout lattice / rows=2 rowweights=preferred;
-	     layout overlay / xaxisopts=(label="Days from Randomisation" linearopts=(tickvaluesequence=(start=0 end=210 increment=30)));
+	     layout overlay / xaxisopts=(label="Days from Randomization" linearopts=(tickvaluesequence=(start=0 end=210 increment=30)));
 
 	        stepplot x = time y = survival / group = stratum name="Survival"
                legendlabel="Survival";
@@ -121,7 +121,7 @@ ods listing image_dpi=300 style = customsapphire gpath = "&outputpath";
 ods graphics / reset=all imagename="Output 5-5" height=3.33in width=5in;
 
 title1 'Product-Limit Survival Estimates';
-title2 'With Number of Subjects at-Risk';
+title2 'With Number of Subjects At-Risk';
 
 proc sgrender data = Survivalplot template = kmtemplate;
    format stratum $trt.;

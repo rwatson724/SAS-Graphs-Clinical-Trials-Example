@@ -108,7 +108,7 @@ proc template;
          endsidebar;
 
          columnaxes;
-		    columnaxis / label="Days from Randomisation" linearopts=(tickvaluesequence=(start=0 end=210 increment=30));
+		    columnaxis / label="Days from Randomization" linearopts=(tickvaluesequence=(start=0 end=210 increment=30));
          endcolumnaxes;
  
          cell;

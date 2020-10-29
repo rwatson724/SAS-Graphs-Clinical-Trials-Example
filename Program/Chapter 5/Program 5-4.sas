@@ -83,7 +83,7 @@ proc template;
       mvar log_rank_pvalue HazardRatio1 HazardRatio2 CMedianSurvival1 CMedianSurvival2 CMedianSurvival3;
       begingraph;
 	  layout lattice / rows=2 rowweights=preferred;
-	     layout overlay / xaxisopts=(label="Days from Randomisation" linearopts=(tickvaluesequence=(start=0 end=210 increment=30)));
+	     layout overlay / xaxisopts=(label="Days from Randomization" linearopts=(tickvaluesequence=(start=0 end=210 increment=30)));
 
 	        %do i = 3 %to 1 %by -1;
 		       dropline y = 0.50 x = MedianSurvival&i  / dropto = both lineattrs=(thickness=1px color=graphdata&i:color pattern=graphdata&i:linestyle) label=CMedianSurvival&i;
@@ -122,7 +122,7 @@ ods listing image_dpi=300 style = customsapphire gpath = "&outputpath";
 ods graphics / reset=all imagename="Output 5-4" height=3.33in width=5in;
 
 title1 'Product-Limit Survival Estimates';
-title2 'With Number of Subjects at-Risk';
+title2 'With Number of Subjects At-Risk';
 
 proc sgrender data = Survivalplot template = kmtemplate;
    format stratum $trt.;
