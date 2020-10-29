@@ -4,10 +4,10 @@ SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-03-29
 Purpose:          Used to create the subgroup Forest Plot with size of hazard ratio dependent on number of subjects
-                  for SAS® Graphics for Clinical Trials by Example book. 
+                  for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
-Input:            adam.adtteeff 
+Input:            tfldata.HazardRatios_Subgroup_All_N 
 Output:           Output 5-9.png, Output 5-91.png
 Comments:         Use CustomSapphire style that was provided by SAS press
                   Note CustomSapphire is not provided with SAS but rather created 

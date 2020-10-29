@@ -4,7 +4,7 @@ Program:          Program_8-7.sas
 SAS Version:      SAS Enterprise Guide 7.15 (SAS 9.4m5)
 Developer:        Richann Watson 
 Date:             2019-11-21
-Purpose:          Produce outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 10
 
 Macros:           NONE
@@ -142,8 +142,8 @@ ods rtf file = "&outpath.\&outname..rtf"
 /* render graph for Serum Glucose only */
 title 'Graph to Illustrate Patient Profile Plot';
 proc sgrender data = adam.diabprof template = ptprof;
-   *where usubjid = "ABC-DEF-0001";
-   by usubjid;
+   where usubjid = "ABC-DEF-0001";
+   *by usubjid;
 run;
 
 ods rtf close;

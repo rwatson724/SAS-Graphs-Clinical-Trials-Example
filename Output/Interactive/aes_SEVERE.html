@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="http://www.krissharris.co.uk/SAS-Graphs-Clinical-Trials-Example/Chapter7/myScript.js"></script>  <link rel="stylesheet" type="text/css" href="http://www.krissharris.co.uk/SAS-Graphs-Clinical-Trials-Example/Chapter7/myScript.css"><meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>SAS Output</title>
+<style>
+/*<![CDATA[*/
+.body.c section > table, .body.c section > pre, .body.c div > table,
+.body.c div > pre, .body.c article > table, .body.c article > pre,
+.body.j section > table, .body.j section > pre, .body.j div > table,
+.body.j div > pre, .body.j article > table, .body.j article > pre,
+.body.c p.note, .body.c p.warning, .body.c p.error, .body.c p.fatal,
+.body.j p.note, .body.j p.warning, .body.j p.error, .body.j p.fatal,
+.body.c > table.layoutcontainer, .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.layoutregion.l table, .layoutregion.l pre, .layoutregion.l p.note,
+.layoutregion.l p.warning, .layoutregion.l p.error, .layoutregion.l p.fatal { margin-left: 0 }
+.layoutregion.c table, .layoutregion.c pre, .layoutregion.c p.note,
+.layoutregion.c p.warning, .layoutregion.c p.error, .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.layoutregion.r table, .layoutregion.r pre, .layoutregion.r p.note,
+.layoutregion.r table, .layoutregion.r pre, .layoutregion.r p.note,
+.layoutregion.r p.warning, .layoutregion.r p.error, .layoutregion.r p.fatal { margin-right: 0 }
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block }
+html{ font-size: 100% }
+.body { margin: 1em; font-size: 13px; line-height: 1.231 }
+sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+ul, ol { margin: 1em 0; padding: 0 0 0 40px }
+dd { margin: 0 0 0 40px }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+img { border: 0; vertical-align: middle }
+svg:not(:root) { overflow: hidden }
+figure { margin: 0 }
+table { border-collapse: collapse; border-spacing: 0 }
+.layoutcontainer { border-collapse: separate; border-spacing: 0 }
+p { margin-top: 0; text-align: left }
+span { text-align: left }
+table { margin-bottom: 1em }
+td, th { text-align: left; padding: 3px 6px; vertical-align: top }
+td[class$="fixed"], th[class$="fixed"] { white-space: pre }
+section, article { padding-top: 1px; padding-bottom: 8px }
+hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.stacked-value { text-align: left; display: block }
+.stacked-cell > .stacked-value, td.data > td.data, th.data > td.data, th.data > th.data, td.data > th.data, th.header > th.header { border: 0 }
+.stacked-cell > div.data { border-width: 0 }
+.systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.systitleandfootercontainer > p { margin: 0 }
+.systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.batch { display: table }
+.toc { display: none }
+.proc_note_group, .proc_title_group { margin-bottom: 1em }
+p.proctitle { margin: 0 }
+p.note, p.warning, p.error, p.fatal { display: table }
+.notebanner, .warnbanner, .errorbanner, .fatalbanner,
+.notecontent, .warncontent, .errorcontent, .fatalcontent { display: table-cell; padding: 0.5em }
+.notebanner, .warnbanner, .errorbanner, .fatalbanner { padding-right: 0 }
+.body > div > ol li { text-align: left }
+.c { text-align: center }
+.r { text-align: right }
+.l { text-align: left }
+.j { text-align: justify }
+.d { text-align: right }
+.b { vertical-align: bottom }
+.m { vertical-align: middle }
+.t { vertical-align: top }
+.aftercaption {
+    background-color: #ffffff;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.batch > colgroup {
+    border-left: 0 solid #000000;
+    border-right: 0 solid #000000;
+}
+.batch > tbody, .batch > thead, .batch > tfoot {
+    border-top: 0 solid #000000;
+    border-bottom: 0 solid #000000;
+}
+.batch { border: hidden; }
+.batch {
+    background-color: #ffffff;
+    border: 0 solid #000000;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Cumberland AMT', Courier;
+    font-size: 7pt;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.beforecaption {
+    background-color: #ffffff;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0.75in 0.5in 0.75in 0.75in;
+}
+.bodydate {
+    background-color: #ffffff;
+    border-spacing: 0;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+}
+.bycontentfolder {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.byline {
+    background-color: #ffffff;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.bylinecontainer > col, .bylinecontainer > colgroup > col, .bylinecontainer > colgroup, .bylinecontainer > tr, .bylinecontainer > * > tr, .bylinecontainer > thead, .bylinecontainer > tbody, .bylinecontainer > tfoot { border: none; }
+.bylinecontainer {
+    background-color: #ffffff;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.caption {
+    background-color: #ffffff;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.cell, .container {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.contentfolder, .contentitem {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.contentproclabel, .contentprocname {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.contents {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.contentsdate {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.contenttitle {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bold;
+    margin: 3ex 1em 4ex;
+    text-align: center;
+    width: 100%;
+}
+.continued {
+    background-color: #ffffff;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.data, .dataemphasis {
+    border-color: #919191;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.dataemphasisfixed {
+    border-color: #919191;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.dataempty {
+    border-color: #919191;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.datafixed {
+    border-color: #919191;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.datastrong {
+    border-color: #919191;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.datastrongfixed {
+    border-color: #919191;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.date, .document {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.errorbanner {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.errorcontent {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.errorcontentfixed {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.extendedpage {
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.fatalbanner {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.fatalcontent {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.fatalcontentfixed {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.folderaction {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.footer {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.footeremphasis {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+.footeremphasisfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.footerempty {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.footerfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.footerstrong {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.footerstrongfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.frame {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.graph > colgroup {
+    border-left: 0.75pt solid #000000;
+    border-right: 0.75pt solid #000000;
+}
+.graph > tbody, .graph > thead, .graph > tfoot {
+    border-top: 0.75pt solid #000000;
+    border-bottom: 0.75pt solid #000000;
+}
+.graph { border: hidden; }
+.graph {
+    background-color: #ffffff;
+    border: 0.75pt solid #000000;
+    border-collapse: separate;
+    border-spacing: 0.25pt;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    }
+.graphannolines { color: #000000 }
+.graphoutliers { line-style: 1 }
+.header {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.headeremphasis {
+    background-color: #bbbbbb;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+.headeremphasisfixed {
+    background-color: #bbbbbb;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.headerempty {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.headerfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.headerstrong {
+    background-color: #bbbbbb;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.headerstrongfixed {
+    background-color: #bbbbbb;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #000000;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.index {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.indexaction, .indexitem {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.indexprocname {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+}
+.indextitle {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+.layoutcontainer, .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.linecontent {
+    background-color: #ffffff;
+    border-color: #919191;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.list {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.list10 {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.list2 {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.list3, .list4, .list5, .list6, .list7, .list8, .list9 {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.listitem {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.listitem10 {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.listitem2 {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.listitem3, .listitem4, .listitem5, .listitem6, .listitem7, .listitem8, .listitem9 {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.note {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.notebanner {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.notecontent {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.notecontentfixed {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.output > colgroup {
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+.output > tbody, .output > thead, .output > tfoot {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+.output { border: hidden; }
+.output {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    }
+.pageno {
+    background-color: #ffffff;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.pages {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.pagesdate {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.pagesitem {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.pagesproclabel, .pagesprocname {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+}
+.pagestitle {
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+.paragraph {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.parskip > col, .parskip > colgroup > col, .parskip > colgroup, .parskip > tr, .parskip > * > tr, .parskip > thead, .parskip > tbody, .parskip > tfoot { border: none; }
+.parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+    }
+.prepage {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.proctitle {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.proctitlefixed {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooter {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooteremphasis {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+.rowfooteremphasisfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.rowfooterempty {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooterfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.rowfooterstrong {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooterstrongfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheader {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheaderemphasis {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+.rowheaderemphasisfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.rowheaderempty {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheaderfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.rowheaderstrong {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheaderstrongfixed {
+    background-color: #dae4f3;
+    border-color: #b0b7bb;
+    border-collapse: collapse;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.systemfooter, .systemfooter10, .systemfooter2, .systemfooter3, .systemfooter4, .systemfooter5, .systemfooter6, .systemfooter7, .systemfooter8, .systemfooter9, .systemtitle, .systemtitle10, .systemtitle2, .systemtitle3, .systemtitle4, .systemtitle5, .systemtitle6, .systemtitle7, .systemtitle8, .systemtitle9 {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.systitleandfootercontainer > col, .systitleandfootercontainer > colgroup > col, .systitleandfootercontainer > colgroup, .systitleandfootercontainer > tr, .systitleandfootercontainer > * > tr, .systitleandfootercontainer > thead, .systitleandfootercontainer > tbody, .systitleandfootercontainer > tfoot { border: none; }
+.systitleandfootercontainer {
+    background-color: #ffffff;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.table > col, .table > colgroup > col {
+    border-left: 3px solid #919191;
+    border-right: 3px solid #919191;
+}
+.table > tr, .table > * > tr {
+    border-top: 3px solid #919191;
+    border-bottom: 3px solid #919191;
+}
+.table { border: hidden; }
+.table {
+    background-color: #ffffff;
+    border: 3px solid #919191;
+    border-collapse: collapse;
+    border-spacing: .05pt;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    }
+.titleandnotecontainer > col, .titleandnotecontainer > colgroup > col, .titleandnotecontainer > colgroup, .titleandnotecontainer > tr, .titleandnotecontainer > * > tr, .titleandnotecontainer > thead, .titleandnotecontainer > tbody, .titleandnotecontainer > tfoot { border: none; }
+.titleandnotecontainer {
+    background-color: #ffffff;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.titlesandfooters {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.usertext {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.warnbanner {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.warncontent {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Albany AMT', Albany;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.warncontentfixed {
+    background-color: #ffffff;
+    color: #112277;
+    font-family: 'Cumberland AMT', Courier;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="c body">
+<h1 class="body toc">SAS Output</h1>
+<div id="IDX" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle"> </span> </p>
+</div>
+<p class="usertext"><center><div class='dropdown'>   <button onclick='myFunction()' class='dropbtn'>Select Severity</button>   <div id='myDropdown' class='dropdown-content'>     <a href='aes_ALL SEVERITIES.html'>All</a>     <a href='aes_MILD.html'>Mild</a>     <a href='aes_MODERATE.html'>Moderate</a>     <a href='aes_SEVERE.html'>Severe</a>   </div> </div> </center></p>
+<section data-name="SGRender" data-sec-type="proc">
+<h1 class="contentprocname toc">The SGRENDER Procedure</h1>
+<article>
+<h1 class="contentitem toc">The SGRender Procedure</h1>
+<div class="c">
+<script type="text/ecmascript">
+function SVG_IDX_Init(anchor) {
+}
+</script>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" baseProfile="full" version="1.1" id="SVG_IDX" onload='SVG_IDX_Init("SVG_IDX")' viewBox="-1 -1 865 577" height="576" width="864">
+<title>The SGRender Procedure</title>
+<desc></desc>
+<defs>
+<clipPath id="SVG_IDX_clipPage1">
+<rect x="-1" y="-1" width="865" height="577"></rect>
+</clipPath>
+</defs>
+<g id="SVG_IDX_Page1" clip-path="url(#SVG_IDX_clipPage1)">
+<g transform=" scale(1, 1)">
+<rect x="0" y="0" width="863" height="575" style="fill: #FFFFFF; "></rect>
+<rect x="0" y="0" width="863" height="575" style="fill: #FFFFFF; "></rect>
+<rect x="1" y="1" width="862" height="574" style="stroke: #000000; stroke-width: 2; fill: none; "></rect>
+<g transform="matrix(1, 0, 0, 1, 14, 14)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath0">
+<rect x="0" y="0" width="835" height="547" ></rect>
+</clipPath>
+</defs>
+<g transform="matrix(1, 0, 0, 1, 0, 30)" clip-path="url(#SVG_IDX_ClipPath0)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath1">
+<rect x="0" y="0" width="835" height="486" ></rect>
+</clipPath>
+</defs>
+<rect x="57.9307" y="-0.05464" width="777.07049" height="419.23497" style="fill: #FFFFFF; "></rect>
+<path d="M57.9307 417.18397L834.00238 417.18397" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; stroke-dasharray: 1,3; "></path>
+<path d="M833 417L834.00238 417.18397" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 354.87343L834.00238 354.87343" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; stroke-dasharray: 1,3; "></path>
+<path d="M833 355L834.00238 354.87343" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 292.56289L834.00238 292.56289" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; stroke-dasharray: 1,3; "></path>
+<path d="M833 293L834.00238 292.56289" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 230.25236L834.00238 230.25236" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; stroke-dasharray: 1,3; "></path>
+<path d="M833 230L834.00238 230.25236" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 167.94182L834.00238 167.94182" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; stroke-dasharray: 1,3; "></path>
+<path d="M833 168L834.00238 167.94182" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 105.63128L834.00238 105.63128" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; stroke-dasharray: 1,3; "></path>
+<path d="M833 106L834.00238 105.63128" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 43.32074L834.00238 43.32074" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; stroke-dasharray: 1,3; "></path>
+<path d="M833 43L834.00238 43.32074" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #D3D3D3; stroke-width: 2; fill: none; "></path>
+<defs>
+<clipPath id="SVG_IDX_ClipPath2">
+<rect x="58" y="0" width="777" height="419" ></rect>
+</clipPath>
+</defs>
+<path d="M77.78195 417.18397L98.00776 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<defs>
+<image id="SVG_IDX_Image1" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAB3ElEQVRYhe2XT2rbQBhHnzyyJcWYghPajaGLbkqPUOiityhk2e56hh4s9AJZ5ABZdhFa6i4EjRzFo/nTxWiwwEiVHNt1YR4MI4mR9ObHLL4PAoFAIBAIQPSP3m3D9lkU7/DhqDHvU9y2XG8xSPr68vLNp6urL5kQpHEczcbj6FmScJGmnE0mjIDKGNZaU0jJSilWVcVaax6VQhqD0hptLdoYDGCsVbd5/hHcbT06xYdIR7G1L94vFh/macrzLOPlbMbr+ZxX5+cwnYIQoBSUJXlR8H214kdRsCxL8vWa31JSVBVlvRFjLVJreZvnnwHVGLpLZDRAGm3tIc5xBEyBDBjXTp1Hr2/SERxMGpz0CJewT7r1eAxJOtLGHEo6ASaAYJN0K4OOxwGJcS5/FYbTke4t7Bf/dwTpYxGkj0WQPhanIm3pWUvD6UgbnLSfOxlUT98slzfvFou3Px8esl9lefbt/j75encXG2sHb14IgQASIRQggaoh3SnetwDy6wSusElxpWTCpm7YpZjy6VbAI1DWc3MDW/RN2tZSFlc6yvp5hdvIrq2XT1XX35JsytLWtIf+KMKlKhrjqb2iT9vgAvHXe5WG7e7iqdJ+3uuZbntvX01B7048EAgEducPjDyzW6Hd3WYAAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="93" y="390"  xlink:href="#SVG_IDX_Image1"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image2" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAApElEQVRYhe3WOwoCQRCE4d9XoLuReAPxBOYmXtgT7EkEcy8gCKsGbiSCVNM2CvXBZFPTxSQzYGZmZlZnJO5fAbvkDjfgoASm4oAGWAMdcBWz77TAni+XBjgBR+ASyL5qga0aipTued5yxk33w5KMEwaXc+kqLl3Fpau4dJW/LB15xufDyhA6K1J6A0zI++Ut1JD6n54BS3XIB3fgnHymmZmZ/aYHTaQQSOddkdMAAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="93" y="390"  xlink:href="#SVG_IDX_Image2"></use>
+</g>
+<path d="M131.71744 417.18397L151.94324 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #01665E; stroke-width: 2; fill: none; "></path>
+<path d="M172.52577 417.18397L192.75157 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<defs>
+<image id="SVG_IDX_Image3" width="46" height="69" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAABFCAYAAAA1itSuAAAB7UlEQVRoge2avWrcQBCAvz2Z8+Vs8FWBYEiXQOKnSOM6vcs8R4o8S4o0foWUgUBw7c6l8RkCTjjJkvUzKbTCh4jubqW7sYv5YNlBcDPfrnTVDBiGYRjGE+CeUR7RKOha+7aQ1t7JXmjmn2dn78dV9a4UcZVfpcigA+Qi8w/n5z+ohSv/eKV8aEF3fHj45dPJyeeX0ymvDg54O5vxZjZj/+gIxmMQgTSlSBJu4pjrOGYex/xOU+6yjEWekxQF90VBVpaICBe3t99/zecfgRIo/C6r5INvvMdh1yIQAVPgYSl/I/9fQsTd0toqIrJHLT6i/lRKvzs65EeBNbYuDSC1xwtgTH2Za+uEirNJ0h6MqIUjH699s33Ed8Wy8E5ufBcE/3+ei3gwJq6NiWtj4tqYuDYmro2Ja2Pi2pi4NiaujYlrY+LamLg2Jq6NiWtj4tqYuDYmro2JD0RY0wJv00c8aDwjgIqAA4Q0Wx3gvp2eHpdR9PomSaZ/s2yyyPNJUVWRDGjc3qXpn6+Xl1dADCyAeyDn8TDDxam7v/vULeyJjyP69fkbqcKLpl468886xUOGEJoElU+a+viBDdvYG+TM/drJ2If4IuIL9JVu52ymJprJia0O2jS/aa++uRqkY62U6IPriIcgHbFhGIYC/wBGSKdnjSRtWAAAAABJRU5ErkJggg=="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="187" y="361"  xlink:href="#SVG_IDX_Image3"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image4" width="46" height="69" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAABFCAYAAAA1itSuAAAA00lEQVRoge3aoWoDQRhF4dNuTWllRCGqPlTX5HH7LLFReYGouJiyZKEQ0Y2pCMy/yw2h54ORd+b4XZAkSf/AQ2GzGM+cvoF9y+Cp8MgK+AR2wE9h/9eS3/CvllElHGADbIGhuL/ogHfgo3VYDR+AnnnC+8rwceLDN2N4muFphqcZnmZ4muFphqcZnmZ4muFphqcZnmZ4muFphqcZnmZ4muFphqfdbXj1A+3zeLqJ73fjPc2q4Wvgjenf8rvxnkPrsPL3xAvwWthdcwKOM98pSZLu3xm4NRGSbi5CNQAAAABJRU5ErkJggg=="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="187" y="361"  xlink:href="#SVG_IDX_Image4"></use>
+</g>
+<path d="M226.46125 417.18397L246.68706 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #01665E; stroke-width: 2; fill: none; "></path>
+<path d="M267.26958 417.18397L287.49539 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<defs>
+<image id="SVG_IDX_Image5" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAB5UlEQVRYhe2XzWrbQBRGz1i2ZSuIkjh00RK6KDR9h0JLoJs8VV4jz1AIZNFV+x6l+0BCS8C0SFZGmp8uRo6Vxoozqp16MQcGzUZ3jj5dwRUEAoFAIBAA8Z/ubcNu6mDRuK5T3DauD8r7HipeJMnJyzQ9HPX7Ih0MeBbHYn80IhkO6QGVMUitycqSXCnyqkJqzY1SlMagtEZbizYGUxc9PTr69P7s7DNgGqtVvO8pzZvd3Y8fDg7ePR+PeZWmvN3b4/VkAjs7EEWgFBQF0yzjMs+5yjJ+FgVTKfldlmRVRVE/iLHOywrxDfgKqHo1U79Hz8N33e1wy0ypGEiAGIhqr9azfJMWdgPiUusBMMYlqwCNaxHBkrR9kt4YpZMe4kKMWPFWfaU30h7G2h5OdqUwbEnSNfM+XhnMVkj7fidbIe1LkH4qgvRTEaS7Ihbj6KPm6e2QFsKyGEfXOk8LoHd+fHw4NWbyYzZLfkk5lloPKmO8R9xGUfv9+vryy8XFFZDX6wao2h7AWxo31MS4qWyEG3SiDvVoSCmgBIpaWOImvaXSPgnNC2hcCqLeSxZt1lXaNMQVd1vlHr6vtXnAPKEHB/ZH1pzX1SwSbqXrj+2y1ZW/f2hXfoxdDxMt+3/BtuwDgUBgTfwBxgS9p9kLjJwAAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="282" y="390"  xlink:href="#SVG_IDX_Image5"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image6" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAAqElEQVRYhe3WPWpCQRiG0eMPAcFGdAUBy6zBylW7DSuxFYWUIRYBwUIFS+84GRTeA9PNN/NwmztEREREtNMrmFlgWrljjc2jm4cFF3xijwNOBfP3PvCFmX+Ohi126kSPuw6VRp/w5/no21md9Ctc2lyiW0l0K4luJdGtvGV06W98dF013h4j/HYZKo1e4tvz0QPMseoyVPKenrh8oZp+cKx8ZkRERLyeM6EbFB5lf0YUAAAAAElFTkSuQmCC"></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="282" y="390"  xlink:href="#SVG_IDX_Image6"></use>
+</g>
+<path d="M321.20506 417.18397L341.43087 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #01665E; stroke-width: 2; fill: none; "></path>
+<path d="M362.01339 417.18397L382.2392 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<path d="M388.98113 417.18397L409.20694 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #A23A2E; stroke-width: 2; fill: none; "></path>
+<path d="M415.94888 417.18397L436.17468 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #01665E; stroke-width: 2; fill: none; "></path>
+<path d="M456.75721 417.18397L476.98301 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<path d="M483.72495 417.18397L503.95076 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #A23A2E; stroke-width: 2; fill: none; "></path>
+<path d="M510.69269 417.18397L530.9185 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #01665E; stroke-width: 2; fill: none; "></path>
+<path d="M551.50102 417.18397L571.72683 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<defs>
+<image id="SVG_IDX_Image7" width="46" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAoCAYAAACB4MgqAAAB2klEQVRYhe2XvYrbQBRGj2Rb8soQeQkEAltsk0CqvIeL1MlbpcwL7LOkywNskTJ4C4cl7Oh3Zm4KyVgbsOSxLWeLOXDRuNDM0eUKfwKPx+PxeDyHE/zn+/9Fxj446Nx7TnlhJ9/7EM6HLqLoy4fr609X02mQzGakURSkcUwaRczCEAtUxpDVNUpr8qpCGUNpDIUxGGvRxlCLINZigYc8/7HJ86+A7VSv/NTRO3gdxx9Xt7ef3yQJbxcL3i+XvFsuidMUoghEoCjQWcZaKX4pxYNSbIqCx7Lkqa7JtCbXmtIYRITv6/WrTZ5/A3SnbJ+Ii3jA8xE5JxMgAcr2t2VgZFw7DiOIi8iURhzAsOv43lEJHc8Yo9tI4xEDM5pmDnq5iiPjyIc04zLhwJF0Fh+REId36CWJO+HFL40XvzRe/NK8JPFupB3EWTxw2NwBYZdNDnoAl7/vAAjvVqsbEblZZ1nypyznT3U919ZOTokCv5V6vLu//wmotnKgpidouYoHNHkiBq6AebvuZgwXtlIaqICirZKBhOgSa7cb2HbTsl1XrTgcL77ds6LptGFgZI7J49Iesr2GnP6SC42s7VzP+83J89h5rq8i2VO9EscQ7FmfguxZezwezwX4C0HHvy4xeyx0AAAAAElFTkSuQmCC"></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="566" y="390"  xlink:href="#SVG_IDX_Image7"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image8" width="46" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAoCAYAAACB4MgqAAAAp0lEQVRYhe3WMQrCUBCE4T++NKIHEAKmtBA8Q27vAWztLKztJBCwcAXbt1lWA/PBK2d3IEUWRERERP5X48gcgUNwjztwrgm0jiU7YANcgMmR/1aAPdCTUBzgam905j+KzTjVBr3FJ1sYUdz11VYzF/+MimdT8Wwqnk3Fsy22uPeXv7ZXZu4vNqeat/gAdMRchx1wqw167vEt77M20hN4BM8UERGR5XsBO18RbeiSBNwAAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="566" y="390"  xlink:href="#SVG_IDX_Image8"></use>
+</g>
+<path d="M605.4365 417.18397L625.66231 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #01665E; stroke-width: 2; fill: none; "></path>
+<path d="M646.24483 417.18397L666.47064 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<defs>
+<image id="SVG_IDX_Image9" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAB4UlEQVRYhe2XO27bMACGP8qWbcUxijhFh3rokCU9QLeiQ4YuOVYv0RN0CjJ3KXqGDj1B0AcKo0ELCYzEhzLQquUkikD5UQ/8AEKCAJOfftHATwgEAoFAIADiP/22iXJbC4vadZPiZe36qLzvomJ2ePju+Xh8Mur3xSSOeTIciqejEQeDARGgrCU3hrQoyLQmU4rcGG60prAWbQymLDHWYheTvj87+/Dm4uIjYGujUbzvKc3p0dHb17PZq2dJwovJhNPplJPjYxiPodcDrUFKrtOU71nGjzTll5Rc5zl/i4JUKeTiRWzpvDR8AT67WxSrqa8lvent8A+p9QA4AHKW26Mxbd+ktyJ+46QTnKQGDE5a8IB4tGmBLhTGxMAAF2JESzi+0lvZHrYsI6C3GK1fcy+Stk6yNeGKvZD2JUjviiC9K4L0rtgn6dZKWrEX0tFqQdponxZAdHl+/vK3UtO5lMmfPE9yY2JlrXfFrU1afp3Pv326uvoJZECKa3tVRb33At7SuFIzxLWyBIhZdgZfKikNFIBcjALX9B6U9kmomsDgUhC4T9pj2Ru6StuauGZ1q9zD97PWF6gS6ipcn7Oa17BMuJGuB9tqRLVnXbl7oG39M3ZdTDTcr8Oj58JAIBBYn1saB7+HRm91qgAAAABJRU5ErkJggg=="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="661" y="390"  xlink:href="#SVG_IDX_Image9"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image10" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAAp0lEQVRYhe3WMQrCQBBG4ZcYA6mC5ghi7xUsvLPnSG2pIKRLExECNhGsxJ2Mg8L/QbrMzut2QURERCROZpjZAyvnjhY4ffpzYViwAc7AFRgN869KYAc0fDmaacEFn+g6dcgaPQJ35kc/z0qSOywNp+goio6i6CiKjvKX0dZrvJo+j7dHBdxShqzRB6BjfvQC2ALHlCHLe3oNLA1z7/TA4HymiIiI/J4H/VoUI5sn6+4AAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="661" y="390"  xlink:href="#SVG_IDX_Image10"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image11" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAB70lEQVRYhe2Xz2oTQRzHP7P5u7WxhkirHiq0N0sfRK++heBJfARB8CXE9/AoeOoLCHoSrLSQrcludv6th800a9sknaSJOcwHhhkGduYzv53DdyAQCAQCgQCI//TtNIpVbSwq/V2KF5V+przvpqLzaPd9p9vbr7eborkV097uiNbOfZrtmKgWYY1Byxw5zFCjHJlmaCkxSmK1wiiNMQYKS2FLtxdv33z89Or1Z8COhV1/I3VPafYODp4/OXp2fK/bZefxHr2n++weHrL9sEe90UCPRqTJBcnpKYOzc/6cnZP1+2RJQj5MkVl5GKMUhbUAFIKvwBdAAZp/q76U9F1fh0tklrWAGIjGUzOr7VvplUirPG8BW5SShrLabr9r4tHViTmspNpGqgbQBBpjp5n7+EqvhKKwEVDjFsKwMdKF4JbCsCHSvgTpdRGk10WQXhebJD03kjo2QjoSkWUSkOaK++QIAUQvP7w7Uv2LB2mSxPlgEGupGkZr74h7uagQxe9v33/+ODn5BQyAITBiElGvHcJbmjIZuigZU4acmudaDielAQmkY2FJmfZulPapkFvAUoZ1MR5Xg86i0rYirplzVXx/q8u7bqxZXLi6phM3TCo8lUUftq5FlblFufqgrbapAosgpoyXYea7MBAIBJbnL2pUv5a/AXw1AAAAAElFTkSuQmCC"></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="688" y="390"  xlink:href="#SVG_IDX_Image11"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image12" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAAqUlEQVRYhe3WPUoDURSG4cf8wVRClhDIClyCTRacfbgBJa1gFZuAMGBhilSSOTO5RvgemG7OvW93DxERERHtPBRmnvE4cccLDtf+vChcsMUbPtAX5i+t8IS1G0fDK96Nj+78BA9Sje7xZXz0vHLGbOSlfyLRrSS6lUS3kuhW/mV09Rnvzt8Uu0eH45ChavTOdFveBvshQ5V9eo1lYe43nzhNfGZERETcn2/cmhQtDz5h+wAAAABJRU5ErkJggg=="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="688" y="390"  xlink:href="#SVG_IDX_Image12"></use>
+</g>
+<path d="M740.98865 417.18397L761.21445 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #445694; stroke-width: 2; fill: none; "></path>
+<defs>
+<image id="SVG_IDX_Image13" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAB8ElEQVRYhe2XO27UQBiAv1mvNzbRBmmDqCJRkAIpFW2qcAgkpJwhJ4BbcAAuEWoukQ5S0BCUgrzszNrzorCtWMu+xpsNW8wnjWZkjcff/P5t/4ZAIBAIBAIg/tO5s3DLTOp3WFi0+scUdzPG/+Al/e3oKDk5O/uSRhFJvy+GcSyeb23xIkl4NhjQA5S1FMaQlSW51uRKURjDWGtKa9HGYJzDWIut1/14ePjp+PT0J2DrNlfcS/p2Zyd+t7f3YZQkvExTXg2HvBmNeL27C9vbEEWgNUjJVZbxK8+5yDIupeSqKLgtSzKlkPVGrKu8zHj8GfgNKEAvEveRFndKrSOPuZQyBVKqdHOtNhWvSOdrkr4uihRIqCKsATNvfm8dEr5IYwbAgCqIPRY85F7S91qvJdLa2giIWEIYNiTSzjnBksKwKdKe7/uNkPYlSD8VQfqpCNJdEQtqjUk2QjoSoilJLUvI+7zUxfuDg/h4f//tRZ6nf6RM75RKpNYD61znzfeEsF/Pz7//uLm5BjLgHiioiiY77Rwvaao7E1NVZE1lFvPwCfbF8VDZFYCsm6qlV66nm7wz9aKiHkd0//WaXHOubIPvhZpot6uyrlFuaIs3bW5ud7lYE9W27KrSTd+kS/v4VIEuiBnjVXATfSAQCDwyfwEZcMDyDgfJ3wAAAABJRU5ErkJggg=="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="756" y="390"  xlink:href="#SVG_IDX_Image13"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image14" width="45" height="40" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAoCAYAAABq13MpAAAAqElEQVRYhe3WoQoCQRSF4d9dETYbjEaTj2Ey+LhbjD6G3WISQRAEyyQR9VxnLwrng2lz7hyYMANmZmZmeUbi/hbYDNBjC5w+3TwWhzfAEuiBi5h9ZgKsgB0DlgY4AHvgHMg+6oCFGoqUvgHXsr7VlnmSpsLB6Vw6i0tnceksLp3lL0tHnvGuLPn5fTFLEik9BdbU++XN1ZD6nwaYBTLvHKlzc2ZmZvbb7qX9EXw4D/n6AAAAAElFTkSuQmCC"></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath2)">
+<use x="756" y="390"  xlink:href="#SVG_IDX_Image14"></use>
+</g>
+<path d="M794.92413 417.18397L815.14994 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #01665E; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 417.18397L835.00119 417.18397" clip-path="url(#SVG_IDX_ClipPath2)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 419.18032L836 419.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<path d="M835.00119 419.18032L835.00119 -0.05464" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 0.94353L835.00119 0.94353" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<path d="M58.92951 419.18032L58.92951 -0.05464" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<path d="M58.92951 419.18032L58.92951 -0.05464" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<path d="M57.9307 417.18397L51.92693 417.18397" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="41.17458" y="422.18396" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000030;</text>
+<path d="M57.9307 354.87343L51.92693 354.87343" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="41.17458" y="359.87344" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000035;</text>
+<path d="M57.9307 292.56289L51.92693 292.56289" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="34.17458" y="297.5629" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000031;&#x000030;</text>
+<path d="M57.9307 230.25236L51.92693 230.25236" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="34.17458" y="235.25237" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000031;&#x000035;</text>
+<path d="M57.9307 167.94182L51.92693 167.94182" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="34.17458" y="172.94182" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000032;&#x000030;</text>
+<path d="M57.9307 105.63128L51.92693 105.63128" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="34.17458" y="110.63129" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000032;&#x000035;</text>
+<path d="M57.9307 43.32074L51.92693 43.32074" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="34.17458" y="48.32074" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000033;&#x000030;</text>
+<g transform="matrix(0, -1, 1, 0, 0, 376.06284)">
+<text x="0" y="15.66516" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 16px; font-weight: bold; white-space: pre; ">&#x000050;&#x000065;&#x000072;&#x000063;&#x000065;&#x00006E;&#x000074;&#x000061;&#x000067;&#x000065;&#x000020;&#x00006F;&#x000066;&#x000020;&#x000050;&#x000061;&#x000074;&#x000069;&#x000065;&#x00006E;&#x000074;&#x000073;&#x000020;&#x000077;&#x000069;&#x000074;&#x000068;&#x000020;&#x000061;&#x000074;&#x000020;&#x00004C;&#x000065;&#x000061;&#x000073;&#x000074;&#x000020;&#x00004F;&#x00006E;&#x000065;&#x000020;&#x000041;&#x000045;</text>
+</g>
+<path d="M57.9307 419.18032L836 419.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<path d="M114.8626 419.18032L114.8626 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="66.3626" y="456.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000053;&#x000049;&#x000054;&#x000045;&#x000020;&#x000044;&#x000045;&#x000052;&#x00004D;&#x000041;&#x000054;&#x000049;&#x000054;&#x000049;&#x000053;</text>
+<g transform="matrix(1, 0, 0, 1, 10, 0)" clip-path="url(#SVG_IDX_ClipPath1)">
+<text x="66.3626" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000041;&#x000050;&#x000050;&#x00004C;&#x000049;&#x000043;&#x000041;&#x000054;&#x000049;&#x00004F;&#x00004E;</text>
+</g>
+<path d="M209.60641 419.18032L209.60641 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="163.60641" y="456.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000053;&#x000049;&#x000054;&#x000045;&#x000020;&#x000049;&#x000052;&#x000052;&#x000049;&#x000054;&#x000041;&#x000054;&#x000049;&#x00004F;&#x00004E;</text>
+<g transform="matrix(1, 0, 0, 1, 7, 0)" clip-path="url(#SVG_IDX_ClipPath1)">
+<text x="163.60641" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000041;&#x000050;&#x000050;&#x00004C;&#x000049;&#x000043;&#x000041;&#x000054;&#x000049;&#x00004F;&#x00004E;</text>
+</g>
+<path d="M304.35023 419.18032L304.35023 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="261.35022" y="456.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000053;&#x000049;&#x000054;&#x000045;&#x000020;&#x000050;&#x000052;&#x000055;&#x000052;&#x000049;&#x000054;&#x000055;&#x000053;</text>
+<g transform="matrix(1, 0, 0, 1, 4, 0)" clip-path="url(#SVG_IDX_ClipPath1)">
+<text x="261.35022" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000041;&#x000050;&#x000050;&#x00004C;&#x000049;&#x000043;&#x000041;&#x000054;&#x000049;&#x00004F;&#x00004E;</text>
+</g>
+<path d="M399.09404 419.18032L399.09404 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="357.09406" y="456.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000053;&#x000049;&#x000054;&#x000045;&#x000020;&#x000056;&#x000045;&#x000053;&#x000049;&#x000043;&#x00004C;&#x000045;&#x000053;</text>
+<g transform="matrix(1, 0, 0, 1, 3, 0)" clip-path="url(#SVG_IDX_ClipPath1)">
+<text x="357.09406" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000041;&#x000050;&#x000050;&#x00004C;&#x000049;&#x000043;&#x000041;&#x000054;&#x000049;&#x00004F;&#x00004E;</text>
+</g>
+<path d="M493.83785 419.18032L493.83785 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="462.83786" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000045;&#x000052;&#x000059;&#x000054;&#x000048;&#x000045;&#x00004D;&#x000041;</text>
+<path d="M588.58166 419.18032L588.58166 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="559.58167" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000050;&#x000052;&#x000055;&#x000052;&#x000049;&#x000054;&#x000055;&#x000053;</text>
+<path d="M683.32548 419.18032L683.32548 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="667.32549" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000052;&#x000041;&#x000053;&#x000048;</text>
+<path d="M778.06929 419.18032L778.06929 425.18032" clip-path="url(#SVG_IDX_ClipPath1)" style="stroke: #000000; stroke-width: 2; fill: none; "></path>
+<text x="731.06929" y="441.43032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 12px; font-weight: bold; white-space: pre; ">&#x000053;&#x00004B;&#x000049;&#x00004E;&#x000020;&#x000049;&#x000052;&#x000052;&#x000049;&#x000054;&#x000041;&#x000054;&#x000049;&#x00004F;&#x00004E;</text>
+<text x="354.96474" y="481.93032" clip-path="url(#SVG_IDX_ClipPath1)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 16px; font-weight: bold; white-space: pre; ">&#x000044;&#x000069;&#x000063;&#x000074;&#x000069;&#x00006F;&#x00006E;&#x000061;&#x000072;&#x000079;&#x00002D;&#x000044;&#x000065;&#x000072;&#x000069;&#x000076;&#x000065;&#x000064;&#x000020;&#x000054;&#x000065;&#x000072;&#x00006D;</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 183, 517)" clip-path="url(#SVG_IDX_ClipPath0)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath3">
+<rect x="0" y="0" width="527" height="30" ></rect>
+</clipPath>
+</defs>
+<rect x="0" y="12" width="527" height="18" style="fill: #FFFFFF; "></rect>
+<rect x="1" y="13" width="526" height="17" style="stroke: #000000; stroke-width: 2; fill: none; "></rect>
+<g transform="matrix(1, 0, 0, 1, 524, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath4">
+<rect x="0" y="0" width="1" height="14" ></rect>
+</clipPath>
+</defs>
+</g>
+<g transform="matrix(1, 0, 0, 1, 348, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath5">
+<rect x="0" y="0" width="4" height="14" ></rect>
+</clipPath>
+</defs>
+</g>
+<g transform="matrix(1, 0, 0, 1, 174, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+</g>
+<g transform="matrix(1, 0, 0, 1, 76, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath6">
+<rect x="0" y="0" width="19" height="14" ></rect>
+</clipPath>
+</defs>
+</g>
+<g transform="matrix(1, 0, 0, 1, 2, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+</g>
+<g transform="matrix(1, 0, 0, 1, 371, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath7">
+<rect x="0" y="0" width="152" height="14" ></rect>
+</clipPath>
+</defs>
+<text x="4" y="12" clip-path="url(#SVG_IDX_ClipPath7)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 13px; font-weight: bold; white-space: pre; ">&#x000058;&#x000061;&#x00006E;&#x00006F;&#x00006D;&#x000065;&#x00006C;&#x000069;&#x00006E;&#x000065;&#x000020;&#x000048;&#x000069;&#x000067;&#x000068;&#x000020;&#x000044;&#x00006F;&#x000073;&#x000065;</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 353, 16)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath8">
+<rect x="0" y="0" width="17" height="9" ></rect>
+</clipPath>
+</defs>
+<defs>
+<image id="SVG_IDX_Image15" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABFElEQVQ4jd2Ry24CMQxFjz08+6Nd9Iu67Ie17PoUhRlmSOI4oYsRCFTBvrUUyV7co2MH/nzJ+fAYt4f5/A5B8WrE3Y7QdYS2I/Y9aRj4el7xdP9wyk3OAbP5kgVTFDBd4gujCVN00iCqiCra6IXBxSQIcqYlIsfm1NdaLwAXBmYBnTUISiaSU6J6oZbxHWqlZL8OiLuesnRElGKGhYDFSElGLYXQdhSzW4AdOURQobrjKWEhkmPEzRi+N/gtQGg7dDpBRKheKDnjKZFjon19J/U91W+skIZhvLbIuK87JWfatw/69RqLEc83DFI/IMdvqpV927Hfbkj9fgynRPFyHfD5skJVOBwY9c3GW+RM9fwr/E/qByJcxccjUl29AAAAAElFTkSuQmCC"></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath8)">
+<use x="1" y="-3"  xlink:href="#SVG_IDX_Image15"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image16" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4je2SMQqAMBAER7EJpMjvfI7kOf4uhZDWIomEk1VbxenumNtmD17PYOYFSEAWvgMCENtiMkICVmATAR6Y+4UNyPVYBTTnYLwQH/EHnFtwlKoUvjoyIFB6vnukL7EDUgsLg2PQyi8AAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath8)">
+<use x="1" y="-3"  xlink:href="#SVG_IDX_Image16"></use>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 197, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath9">
+<rect x="0" y="0" width="150" height="14" ></rect>
+</clipPath>
+</defs>
+<text x="4" y="12" clip-path="url(#SVG_IDX_ClipPath9)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 13px; font-weight: bold; white-space: pre; ">&#x000058;&#x000061;&#x00006E;&#x00006F;&#x00006D;&#x000065;&#x00006C;&#x000069;&#x00006E;&#x000065;&#x000020;&#x00004C;&#x00006F;&#x000077;&#x000020;&#x000044;&#x00006F;&#x000073;&#x000065;</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 179, 16)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<image id="SVG_IDX_Image17" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9ElEQVQ4jd2RQWoDMQxFnzwJ5FY9X86S67T7dldaJrQTmLFsSe5ihiQTaLJuPwhLgv8k2/DnJddF2+8b2y2IgDuoQs6QM6bKUArPfc/T4XD2bVa4zQZ2O0gJSpkhXQcidCKk5bxWWu8jl7jpy9KL1tYzV1Wt83QRMJvDHSKwCKI1ivsdgCpEXN6g1jPEIuinifwQUOsMiJjNtVJrJbvzMU0PNsj5coUIcKeaMZrxOgx8qaL3AKpKlxJJBI+gRFDceTudeB9HJrP7gKEUujR/TLRGnzOf48h3KUxmTGZYxO+Al+ORJEJrjRKBuqNm1CW/Nf8T/QCbF7Oxz3LaIgAAAABJRU5ErkJggg=="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath8)">
+<use x="1" y="-3"  xlink:href="#SVG_IDX_Image17"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image18" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4je2SMQqAMBAER7EJpMjvfI7kOf4uhZDWIomEk1VbxenumNtmD17PYOYFSEAWvgMCENtiMkICVmATAR6Y+4UNyPVYBTTnYLwQH/EHnFtwlKoUvjoyIFB6vnukL7EDUgsLg2PQyi8AAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath8)">
+<use x="1" y="-3"  xlink:href="#SVG_IDX_Image18"></use>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 114, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath10">
+<rect x="0" y="0" width="59" height="14" ></rect>
+</clipPath>
+</defs>
+<text x="4" y="12" clip-path="url(#SVG_IDX_ClipPath10)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 13px; font-weight: bold; white-space: pre; ">&#x000050;&#x00006C;&#x000061;&#x000063;&#x000065;&#x000062;&#x00006F;</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 96, 16)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<image id="SVG_IDX_Image19" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDklEQVQ4jd2RS1LDQAwFW2NDgCNyJE7ADTgFF4E1ofgEXLE9X43MwlSwqUr2oM2UFq/V0sCfL1k2d/fTtLkAEVCF4MGPHj90xNATw8Dr8wO3N9eHXLsEnG/g8gpcAymCFmjbc1zTIs7hnEOkWRm4lY6AuPld+okI8t2Y2QqwMkhpni4CJc8GtSpWK2YVM6NqOQ6IAaz+3CAnJaeAasKq4scO1XQcEMaenM4QEWpVNCdy9pQcUM2M/Q7VfBzgx46mmQFmimpBSySnyOf7E8HvMdVTK/Q41yAiTJOhWqha6HZb+v0bJUfKqRVSHBbfZPihY+g/iKGfwyVi9YTBy/YREQdM8/SS0ZoPJr/D/6S+ANlmvQhJcaVEAAAAAElFTkSuQmCC"></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath8)">
+<use x="1" y="-3"  xlink:href="#SVG_IDX_Image19"></use>
+</g>
+<defs>
+<image id="SVG_IDX_Image20" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4je2SMQqAMBAER7EJpMjvfI7kOf4uhZDWIomEk1VbxenumNtmD17PYOYFSEAWvgMCENtiMkICVmATAR6Y+4UNyPVYBTTnYLwQH/EHnFtwlKoUvjoyIFB6vnukL7EDUgsLg2PQyi8AAAAASUVORK5CYII="></image>
+</defs>
+<g clip-path="url(#SVG_IDX_ClipPath8)">
+<use x="1" y="-3"  xlink:href="#SVG_IDX_Image20"></use>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 7, 14)" clip-path="url(#SVG_IDX_ClipPath3)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath11">
+<rect x="0" y="0" width="68" height="14" ></rect>
+</clipPath>
+</defs>
+<text x="0" y="12" clip-path="url(#SVG_IDX_ClipPath11)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 13px; font-weight: bold; white-space: pre; ">&#x000054;&#x000072;&#x000065;&#x000061;&#x000074;&#x00006D;&#x000065;&#x00006E;&#x000074;&#x00003A;</text>
+</g>
+</g>
+<defs>
+<clipPath id="SVG_IDX_ClipPath12">
+<rect x="0" y="0" width="835" height="29" ></rect>
+</clipPath>
+</defs>
+<g transform="matrix(1, 0, 0, 1, 291, 0)" clip-path="url(#SVG_IDX_ClipPath12)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath13">
+<rect x="0" y="0" width="311" height="23" ></rect>
+</clipPath>
+</defs>
+<text x="4" y="18.43261" clip-path="url(#SVG_IDX_ClipPath13)" style="fill: #000000; font-family: 'SVG_IDX_Albany AMT Font3', 'Albany AMT', sans-serif; font-size: 20px; font-weight: bold; white-space: pre; ">&#x000053;&#x000045;&#x000056;&#x000045;&#x000052;&#x000045;&#x000020;&#x00003A;&#x000044;&#x000065;&#x000072;&#x00006D;&#x000061;&#x000074;&#x00006F;&#x00006C;&#x00006F;&#x000067;&#x000069;&#x000063;&#x000061;&#x00006C;&#x000020;&#x000045;&#x000076;&#x000065;&#x00006E;&#x000074;&#x000073;</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 0, 30)" clip-path="url(#SVG_IDX_ClipPath0)">
+<defs>
+<clipPath id="SVG_IDX_ClipPath14">
+<rect x="0" y="-30" width="835" height="547" ></rect>
+</clipPath>
+</defs>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<style type="text/css"><![CDATA[
+]]></style>
+</defs>
+<defs>
+<style type="text/css"><![CDATA[
+  @font-face {
+      font-family: "SVG_IDX_Albany AMT Font3";
+      font-weight: bold;
+      src: url("#SVG_IDX_Font3") format("svg")
+      }
+]]></style>
+<font id="SVG_IDX_Font3" horiz-adv-x="3648" >
+   <font-face      font-family="SVG_IDX_Albany AMT Font3"
+    font-weight="bold"    units-per-em="2048" ascent="1854" descent="-434" >
+      <font-face-src>
+         <font-face-name name="SVG_IDX_Albany AMT Font3"></font-face-name>
+      </font-face-src>
+   </font-face>
+<missing-glyph><path d="M0 0v4992h3456v-4992h-3456" fill="none"></path>
+</missing-glyph>
+<glyph unicode="&#40;" horiz-adv-x="680" 
+d="M640 -252L524 -341Q294 -107 189 104 T85 576Q85 832 187 1042 T524 1493L640 
+1404Q517 1245 450 1024 T384 578Q384 328 448 112 T640 -252Z" ></glyph>
+<glyph unicode="&#47;" horiz-adv-x="552" 
+d="M565 1450L208 0L-10 0L346 1450L565 1450Z" ></glyph>
+<glyph unicode="&#104;" horiz-adv-x="1232" 
+d="M1109 0L810 0L810 594Q810 810 662 810 Q530 810 426 640 L426 0L128 
+0L128 1493L426 1493L426 896Q555 1066 759 1066 Q919 1066 1014 970 T1109 700Z" ></glyph>
+<glyph unicode="&#65;" horiz-adv-x="1402" 
+d="M1493 0L1172 0L1027 384L466 384L320 0L0 0L594 1450L898 1450L1493 
+0ZM930 640L746 1124L562 640L930 640Z" ></glyph>
+<glyph unicode="&#103;" horiz-adv-x="1232" 
+d="M1109 48Q1109 -180 965 -303 T557 -426Q321 -426 128 -298 L192 -85Q365 -170 536 
+-170 Q668 -170 739 -111 T810 60L810 128Q692 0 513 0 Q325 0 205 141 T
+85 521Q85 774 206 920 T525 1066Q605 1066 683 1031 T810 938L810 1066L1109 
+1066L1109 48ZM810 384L810 682Q722 810 594 810 Q502 810 443 735 T384 528Q
+384 400 441 328 T594 256Q719 256 810 384Z" ></glyph>
+<glyph unicode="&#48;" horiz-adv-x="1147" 
+d="M575 1450Q812 1450 939 1281 T1066 726Q1066 339 939 169 T575 0Q339 0 212 
+172 T85 726Q85 1113 212 1282 T575 1450ZM575 256Q672 256 720 365 T768 726Q
+768 984 720 1089 T573 1194Q478 1194 431 1088 T384 726Q384 474 431 365 T575 
+256Z" ></glyph>
+<glyph unicode="&#53;" horiz-adv-x="1147" 
+d="M426 928Q493 938 555 938 Q794 938 930 811 T1066 476Q1066 270 918 135 T514 
+0Q260 0 42 128 L104 384Q295 256 484 256 Q614 256 691 315 T768 473Q768 
+570 690 626 T486 682Q458 682 426 682 L364 682L128 712L128 1450L981 1450L
+981 1194L426 1194L426 928Z" ></glyph>
+<glyph unicode="&#49;" horiz-adv-x="1147" 
+d="M853 0L554 0L554 1119Q432 981 170 981 L170 1237Q478 1237 597 1450 L853 
+1450L853 0Z" ></glyph>
+<glyph unicode="&#50;" horiz-adv-x="1147" 
+d="M1024 0L85 0L85 238Q193 366 368 558 T634 836T725 1024Q725 1101 671 
+1148 T518 1194Q348 1194 156 1066 L85 1322Q317 1450 538 1450 Q763 1450 893 1335 T
+1024 1023Q1024 886 939 761 T734 504T513 256L1024 256L1024 0Z" ></glyph>
+<glyph unicode="&#51;" horiz-adv-x="1147" 
+d="M800 749Q920 727 993 642 T1066 432Q1066 251 906 125 T490 0Q359 0 260 
+29 T42 128L104 384Q292 256 480 256 Q604 256 686 306 T768 434Q768 512 
+695 554 T494 597L426 597L426 853Q570 853 647 903 T725 1040Q725 1110 669 
+1152 T518 1194Q437 1194 324 1169 T138 1109L85 1365Q181 1403 305 1427 T526 1450Q
+757 1450 890 1349 T1024 1074Q1024 968 963 877 T800 753Z" ></glyph>
+<glyph unicode="&#80;" horiz-adv-x="1360" 
+d="M128 1450L742 1450Q996 1450 1138 1329 T1280 987Q1280 762 1137 637 T744 512L
+426 512L426 0L128 0L128 1450ZM426 768L722 768Q844 768 913 826 T981 
+984Q981 1080 912 1137 T722 1194L426 1194L426 768Z" ></glyph>
+<glyph unicode="&#101;" horiz-adv-x="1147" 
+d="M1066 128Q888 0 655 0 Q394 0 239 146 T85 535Q85 774 223 920 T590 
+1066Q800 1066 933 916 T1066 499L1066 426L384 426Q398 353 475 304 T661 256Q
+832 256 1002 341 ZM768 640Q757 738 706 795 T582 853Q504 853 449 795 T384 
+640Z" ></glyph>
+<glyph unicode="&#114;" horiz-adv-x="807" 
+d="M810 1024L746 768Q706 810 662 810 Q613 810 567 780 T474 673T426 582L426 
+0L128 0L128 1066L426 1066L426 853Q482 970 540 1018 T682 1066Q759 1066 
+810 1024Z" ></glyph>
+<glyph unicode="&#99;" horiz-adv-x="1147" 
+d="M1066 128Q892 0 664 0 Q396 0 240 144 T85 535Q85 780 242 923 T666 
+1066Q877 1066 1066 938 L1024 725Q848 810 679 810 Q561 810 472 739 T384 534Q
+384 400 471 328 T675 256Q857 256 1024 341 Z" ></glyph>
+<glyph unicode="&#110;" horiz-adv-x="1232" 
+d="M1109 0L810 0L810 594Q810 810 662 810 Q530 810 426 658 L426 0L128 
+0L128 1066L426 1066L426 896Q555 1066 759 1066 Q919 1066 1014 970 T1109 700Z" ></glyph>
+<glyph unicode="&#116;" horiz-adv-x="680" 
+d="M725 85Q633 0 527 0 Q353 0 262 84 T170 326L170 810L42 810L42 1066L
+170 1066L170 1408L469 1408L469 1066L682 1066L682 810L469 810L469 392Q469 
+328 494 292 T563 256Q614 256 661 298 Z" ></glyph>
+<glyph unicode="&#97;" horiz-adv-x="1147" 
+d="M1077 0L778 0Q725 70 725 128 Q586 0 392 0 Q249 0 167 85 T85 311Q
+85 413 139 489 T301 611T557 669L725 682L725 699Q725 853 529 853 Q468 
+853 369 828 T192 768L128 981Q228 1018 357 1042 T588 1066Q802 1066 913 965 T
+1024 670L1024 248Q1024 100 1077 0ZM725 341L725 512Q573 494 537 487 T461 
+457T403 398T384 320Q384 275 411 244 T486 213Q618 213 725 341Z" ></glyph>
+<glyph unicode="&#32;" horiz-adv-x="552" 
+></glyph>
+<glyph unicode="&#111;" horiz-adv-x="1232" 
+d="M618 1066Q858 1066 1005 925 T1152 533Q1152 282 1005 141 T618 0Q377 0 231 
+141 T85 533Q85 784 231 925 T618 1066ZM618 256Q724 256 789 331 T853 533Q
+853 660 790 735 T618 810Q505 810 444 738 T384 533Q384 404 445 330 T618 
+256Z" ></glyph>
+<glyph unicode="&#102;" horiz-adv-x="680" 
+d="M768 1408L704 1194Q619 1237 562 1237 Q518 1237 494 1203 T469 1107L469 1066L
+682 1066L682 853L469 853L469 0L170 0L170 853L0 853L0 1066L170 1066L
+170 1158Q170 1321 265 1407 T538 1493Q636 1493 768 1408Z" ></glyph>
+<glyph unicode="&#105;" horiz-adv-x="552" 
+d="M276 1493Q336 1493 381 1449 T426 1342Q426 1282 382 1238 T276 1194Q214 1194 
+171 1238 T128 1342Q128 1405 171 1449 T276 1493ZM426 0L128 0L128 1066L426 
+1066L426 0Z" ></glyph>
+<glyph unicode="&#115;" horiz-adv-x="1147" 
+d="M960 725Q779 810 609 810 Q426 810 426 762 Q426 738 477 723 T650 664Q894 
+568 980 496 T1066 319Q1066 0 548 0 Q312 0 85 85 L149 341Q334 256 530 
+256 Q768 256 768 314 Q768 336 713 371 T530 446Q311 510 219 583 T128 761Q
+128 901 249 983 T593 1066Q806 1066 1024 981 Z" ></glyph>
+<glyph unicode="&#119;" horiz-adv-x="1657" 
+d="M1632 1066L1344 0L1061 0L832 718L603 0L317 0L32 1066L296 1066L490 
+340L722 1066L941 1066L1173 340L1368 1066L1632 1066Z" ></glyph>
+<glyph unicode="&#76;" horiz-adv-x="1232" 
+d="M1152 0L128 0L128 1450L426 1450L426 256L1152 256L1152 0Z" ></glyph>
+<glyph unicode="&#79;" horiz-adv-x="1572" 
+d="M790 1450Q1112 1450 1302 1250 T1493 724Q1493 410 1299 205 T790 0Q474 0 279 
+205 T85 724Q85 1048 273 1249 T790 1450ZM790 256Q979 256 1087 383 T1194 724Q
+1194 938 1086 1066 T790 1194Q600 1194 492 1067 T384 724Q384 514 489 385 T790 
+256Z" ></glyph>
+<glyph unicode="&#69;" horiz-adv-x="1360" 
+d="M1237 0L128 0L128 1450L1237 1450L1237 1194L426 1194L426 853L1109 853L1109 
+597L426 597L426 256L1237 256L1237 0Z" ></glyph>
+<glyph unicode="&#83;" horiz-adv-x="1360" 
+d="M1152 1066Q923 1194 682 1194 Q545 1194 464 1157 T384 1060Q384 1021 437 992 T
+698 902Q876 849 993 810 T1195 683T1280 444Q1280 244 1104 122 T668 0Q336 
+0 42 149 L128 384Q419 256 656 256 Q802 256 891 303 T981 429Q981 478 
+920 514 T642 613Q471 664 359 701 T166 824T85 1059Q85 1234 245 1342 T678 
+1450Q973 1450 1237 1301 Z" ></glyph>
+<glyph unicode="&#73;" horiz-adv-x="552" 
+d="M426 0L128 0L128 1450L426 1450L426 0Z" ></glyph>
+<glyph unicode="&#84;" horiz-adv-x="1275" 
+d="M1194 1194L768 1194L768 0L469 0L469 1194L42 1194L42 1450L1194 1450L1194 
+1194Z" ></glyph>
+<glyph unicode="&#68;" horiz-adv-x="1487" 
+d="M128 1450L701 1450Q1016 1450 1212 1248 T1408 726Q1408 420 1209 210 T701 0L128 
+0L128 1450ZM426 256L675 256Q838 256 974 385 T1109 724Q1109 946 982 1070 T
+675 1194L426 1194L426 256Z" ></glyph>
+<glyph unicode="&#82;" horiz-adv-x="1487" 
+d="M1504 0L1124 0L684 512L426 512L426 0L128 0L128 1450L772 1450Q1032 
+1450 1177 1328 T1322 986Q1322 822 1239 710 T1021 562ZM426 768L763 768Q1024 768 
+1024 983 Q1024 1083 953 1139 T748 1194L426 1194L426 768Z" ></glyph>
+<glyph unicode="&#77;" horiz-adv-x="1742" 
+d="M1578 0L1280 0L1280 1088L958 0L749 0L426 1088L426 0L170 0L170 1450L
+580 1450L874 457L1168 1450L1578 1450L1578 0Z" ></glyph>
+<glyph unicode="&#67;" horiz-adv-x="1487" 
+d="M1408 192Q1158 0 825 0 Q488 0 287 199 T85 720Q85 1044 292 1247 T836 
+1450Q1132 1450 1408 1301 L1322 1066Q1085 1194 834 1194 Q632 1194 508 1060 T384 
+720Q384 523 515 389 T824 256Q1084 256 1322 426 Z" ></glyph>
+<glyph unicode="&#78;" horiz-adv-x="1487" 
+d="M1365 0L1022 0L384 1047L384 0L128 0L128 1450L470 1450L1109 401L1109 
+1450L1365 1450L1365 0Z" ></glyph>
+<glyph unicode="&#85;" horiz-adv-x="1487" 
+d="M1365 585Q1365 322 1202 161 T752 0Q458 0 293 159 T128 589L128 1450L426 
+1450L426 608Q426 442 517 349 T745 256Q878 256 972 348 T1066 606L1066 1450L
+1365 1450L1365 585Z" ></glyph>
+<glyph unicode="&#86;" horiz-adv-x="1360" 
+d="M1322 1450L875 0L446 0L0 1450L314 1450L661 322L1009 1450L1322 1450Z" ></glyph>
+<glyph unicode="&#89;" horiz-adv-x="1402" 
+d="M1376 1450L853 582L853 0L554 0L554 582L32 1450L372 1450L703 900L1034 
+1450L1376 1450Z" ></glyph>
+<glyph unicode="&#72;" horiz-adv-x="1487" 
+d="M1365 0L1066 0L1066 597L426 597L426 0L128 0L128 1450L426 1450L426 
+853L1066 853L1066 1450L1365 1450L1365 0Z" ></glyph>
+<glyph unicode="&#75;" horiz-adv-x="1487" 
+d="M1493 0L1112 0L562 636L426 512L426 0L128 0L128 1450L426 1450L426 
+786L1152 1450L1450 1450L774 831L1493 0Z" ></glyph>
+<glyph unicode="&#121;" horiz-adv-x="1147" 
+d="M1162 1066L722 -16Q643 -216 519 -321 T184 -426Q74 -426 -42 -386 L12 -128Q102 
+-170 170 -170 Q272 -170 334 -134 T429 -20L-10 1066L261 1066L568 308L890 1066L
+1162 1066Z" ></glyph>
+<glyph unicode="&#45;" horiz-adv-x="680" 
+d="M597 384L85 384L85 682L597 682L597 384Z" ></glyph>
+<glyph unicode="&#118;" horiz-adv-x="1147" 
+d="M1162 1066L733 0L418 0L-10 1066L261 1066L576 284L890 1066L1162 1066Z" ></glyph>
+<glyph unicode="&#100;" horiz-adv-x="1232" 
+d="M1109 0L810 0L810 144Q690 0 511 0 Q324 0 204 140 T85 514Q85 769 
+204 917 T511 1066Q700 1066 810 923 L810 1493L1109 1493L1109 0ZM810 382L810 
+692Q724 810 592 810 Q501 810 442 735 T384 528Q384 400 441 328 T594 256Q
+717 256 810 382Z" ></glyph>
+<glyph unicode="&#109;" horiz-adv-x="1827" 
+d="M1706 0L1408 0L1408 594Q1408 721 1376 766 T1282 810Q1175 810 1066 682 L1066 
+0L768 0L768 594Q768 730 737 770 T646 810Q538 810 426 640 L426 0L128 
+0L128 1066L426 1066L426 896Q550 1066 747 1066 Q954 1066 1041 896 Q1173 1066 
+1384 1066 Q1539 1066 1623 972 T1706 700Z" ></glyph>
+<glyph unicode="&#88;" horiz-adv-x="1360" 
+d="M1376 0L1028 0L704 516Q703 516 546 266 L379 0L32 0L530 793L117 1450L
+464 1450Q704 1070 704 1069 L943 1450L1290 1450L877 793L1376 0Z" ></glyph>
+<glyph unicode="&#108;" horiz-adv-x="552" 
+d="M426 0L128 0L128 1493L426 1493L426 0Z" ></glyph>
+<glyph unicode="&#98;" horiz-adv-x="1232" 
+d="M426 914Q474 982 557 1024 T726 1066Q912 1066 1032 926 T1152 554Q1152 297 1032 
+148 T726 0Q537 0 426 142 L426 0L128 0L128 1493L426 1493L426 914ZM426 
+374Q513 256 646 256 Q736 256 795 332 T853 537Q853 670 794 740 T643 810Q
+520 810 426 684 Z" ></glyph>
+<glyph unicode="&#58;" horiz-adv-x="722" 
+d="M340 1066Q412 1066 462 1016 T512 896Q512 824 462 774 T340 725Q268 725 219 
+774 T170 896Q170 968 219 1017 T340 1066ZM340 341Q412 341 462 292 T512 170Q
+512 99 462 49 T340 0Q268 0 219 49 T170 170Q170 242 219 292 T340 341Z" ></glyph>
+</font>
+</defs>
+</svg>
+</div>
+</article>
+</section>
+</body>
+</html>

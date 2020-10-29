@@ -4,7 +4,7 @@ SAS Version:      SAS 9.4M3
 Developer:        Kriss Harris 
 Date:             2020-03-29
 Purpose:          Used to create the Cumulative incidence plot including number of subjects, event percentage and median survival time using GTL
-                  for SAS® Graphics for Clinical Trials by Example book. 
+                  for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 7
 Macros:           NONE
 Input:            adam.adtteeff 

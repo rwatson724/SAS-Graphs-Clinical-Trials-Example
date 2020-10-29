@@ -4,7 +4,7 @@ Program:          Program_9-2.sas
 SAS Version:      SAS Enterprise Guide 7.15 (SAS 9.4m5)
 Developer:        Richann Watson 
 Date:             2020-04-13
-Purpose:          Produce outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 10
 
 Macros:           NONE
@@ -67,8 +67,8 @@ ods rtf file = "&outpath.\&outname2..rtf"
         image_dpi = 300
         style = customSapphire;
 
-proc sgplot data = adam.adslmod noautolegend; 
-   format trt01pn trta.;
+proc sgplot data = adam.adslmod; 
+   format trt01pn trt.;
 
    vbox age / group =  trt01pn extreme;
    xaxis type = discrete label = "Treatment";

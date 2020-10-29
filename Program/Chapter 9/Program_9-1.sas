@@ -4,7 +4,7 @@ Program:          Program_9-1.sas
 SAS Version:      SAS Enterprise Guide 7.15 (SAS 9.4m5)
 Developer:        Richann Watson 
 Date:             2020-04-14
-Purpose:          Produce outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 10
 
 Macros:           NONE
@@ -18,6 +18,14 @@ Comments:         Use CustomSapphire style that was provided by SAS press
                   specifically for SAS Press books
 ----------------------------------------------------------------------------------------- 
 ****************************************************************************************/
+
+/*******************************************/
+/*** BEGIN SECTION TO BE UPDATED BY USER ***/
+/*******************************************/
+%include "C:\Users\gonza\Desktop\GTL_Book_with_Kriss_Harris\Example Code and Data\Program\Chapter 9\styles\CustomSapphire.sas";
+/*****************************************/
+/*** END SECTION TO BE UPDATED BY USER ***/
+/*****************************************/
 
 proc template;
    source STYLES.SAPPHIRE / expand;

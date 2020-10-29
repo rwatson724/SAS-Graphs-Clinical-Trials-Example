@@ -4,14 +4,14 @@ Program:          Program_8-8.sas
 SAS Version:      SAS Enterprise Guide 7.15 (SAS 9.4m5)
 Developer:        Richann Watson 
 Date:             2019-11-27
-Purpose:          Produce outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 10
 
 Macros:           NONE
 
-Input:            diabprof.sas7bdat
+Input:            diabmod.sas7bdat
 
-Output:           diabmod.sas7bdat, Display_8-2.rtf, Output_8-8.rtf
+Output:           Display_8-2.rtf, Output_8-8.rtf
 
 Comments:         Use CustomSapphire style that was provided by SAS press
                   Note CustomSapphire is not provided with SAS but rather created 
@@ -45,12 +45,16 @@ proc format;
                 ;
 run;
 
+/* this step is not needed since adam.diabmod is provided as a permanent data set   */
+/* this is kept here so that you can see the relationship between aedecod and event */
+/*
 data adam.diabmod (drop = event1 event2);
    set adam.diabprof;
 
    if index(aedecod, 'Hypo') then event = 8;
    else if index(aedecod, 'Hyper') then event = 9;
 run;
+*/
 
 proc template;
    define statgraph ptprof2;
@@ -165,8 +169,8 @@ ods rtf file = "&outpath.\&outname..rtf"
         style = customSapphire;
 
 proc sgrender data = adam.diabmod template = ptprof2;
-   *where usubjid = "ABC-DEF-0001";
-   by usubjid;
+   where usubjid = "ABC-DEF-0001";
+   *by usubjid;
 run;
 
 ods rtf close;

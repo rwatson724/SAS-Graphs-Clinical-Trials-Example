@@ -4,12 +4,12 @@ Program:          Program_6-6.sas
 SAS Version:      SAS Enterprise Guide 7.15 (SAS 9.4m5)
 Developer:        Richann Watson 
 Date:             2020-03-31
-Purpose:          Produce outputs for SAS® Graphics for Clinical Trials by Example book. 
+Purpose:          Produce outputs for SASÂ® Graphics for Clinical Trials by Example book. 
 Operating Sys:    Windows 10
 
 Macros:           NONE
 
-Input:            adtmbsdy.sas7bdat
+Input:            adrspmod.sas7bdat
 
 Output:           Output_6-5.rtf
 
@@ -44,22 +44,6 @@ data attrmap (drop = i);
       linecolor = lc(i);
       output;
    end;
-run;
-
-proc sort data = adam.attrmap;
-   by id value;
-run;
-
-proc sort data = attrmap;
-   by id value;
-run;
-
-/* append to the existing attribute map to have a master data set */
-/* note it is not required to save attribute map as a permanent   */
-/* data set - this is done if you wish others to reference it     */
-data adam.attrmap;
-   update adam.attrmap attrmap;
-   by id value;
 run;
 
 proc template;
@@ -108,7 +92,7 @@ ods rtf file = "&outpath.\&outname..rtf"
         image_dpi = 300
         style = customSapphire;
 
-proc sgrender data = adam.adrspmod template = disdur dattrmap = adam.attrmap;
+proc sgrender data = adam.adrspmod template = disdur dattrmap = attrmap;
   dattrvar avalc = 'swimmer';  /* associating the variable (avalc) with the attributes tied to 'swimmer' ID */
   by page trtp;
 run;
