@@ -36,11 +36,30 @@ libname adam "C:\Users\gonza\Desktop\GTL_Book_with_Kriss_Harris\Example Code and
 
 title;
 
+/* formats to display time point */
+proc format;
+   value trt
+       0 = 'Placebo'
+       54 = 'Xanomeline Low Dose'
+       81 = 'Xanomeline High Dose'
+                ;
+run;
+
 /* get a list of all unique visits */
 proc sort data = adam.adlbchem 
            out = visit (keep = avisit:) nodupkey;
   by avisitn avisit;
   where avisitn ne 99;
+run;
+
+data visfmt;
+   set visit (rename = (avisitn = start avisit = label));
+   label = strip(label);
+   fmtname = 'vis';
+run;
+
+/* store the data set in the format library so visit format can be used in PROC SGRENDER */
+proc format cntlin = visfmt;
 run;
 
 /* create a macro variable that contains a list of all the visits numbers for the tick marks */
